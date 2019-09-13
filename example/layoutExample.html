@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+
+	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.css"/>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.js"></script>
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+
+	<style type="text/css">
+		html, body, {
+			/*overflow-y: hidden;*/
+			height: 100%;
+		}
+
+		.frame {
+			display: flex;
+			flex-direction: column;
+			height: 100%;
+		}
+
+		header, nav, section {
+			padding: 10px;
+		}
+
+		header {
+			background-color: #00b5ad;
+			color: white;
+			height: 50px;
+		}
+		
+		.container {
+			position: relative;
+			display: flex;
+			flex: 1;
+		}
+
+		nav, section {
+			border: 0.1px solid lightgray;
+			
+		}
+
+		nav {
+			position: relative;
+			background-color: red;
+			width: 250px;
+		}
+		section {
+			position: relative;
+			flex-grow: 1;
+			background-color: blue;
+			overflow: auto;
+		}
+
+		article {
+			background-color: #999;
+			margin: 20px;
+			overflow: auto;
+		}
+
+		footer {
+			height: 30px; 
+			width: 100%; 
+			background: lightgrey; 
+			color: white;
+		}
+
+	</style>
+
+	<script type="text/javascript">
+		$('.contains').height($(window).height()-40-30);
+	</script>
+</head>
+<body>
+	<div class="frame">
+		<!-- 헤더시작-->
+		<header>
+			<img src="logo.png" height="40px">
+		</header>
+
+		<div class="container">
+			<!--네비게이션-->
+			<nav>
+				<p>nav</p>
+				<ul>
+					<li><a href="#">link</a></li>
+					<li><a href="#">link</a></li>
+					<li><a href="#">link</a></li>
+					<li><a href=""></a></li>
+					<li><a href=""></a></li>
+					<li><a href=""></a></li>
+					<li><a href=""></a></li>
+					<li><a href=""></a></li>
+					<li><a href=""></a></li>
+					<li><a href=""></a></li>
+					<li><a href=""></a></li>
+					<li><a href=""></a></li>
+					<li><a href=""></a></li>
+					<li><a href=""></a></li>
+					<li><a href=""></a></li>
+					<li><a href=""></a></li>
+					<li><a href=""></a></li>
+					<li><a href=""></a></li>
+					<li><a href=""></a></li>
+					<li><a href=""></a></li>
+					<li><a href=""></a></li>
+					<li><a href=""></a></li>
+					<li><a href=""></a></li>
+					<li><a href=""></a></li>
+					<li><a href=""></a></li>
+					<li><a href=""></a></li>
+					<li><a href=""></a></li>
+					<li><a href=""></a></li>
+					<li><a href=""></a></li>
+					<li><a href=""></a></li>
+					<li><a href=""></a></li>
+					<li><a href=""></a></li>
+					<li><a href=""></a></li>
+					<li><a href=""></a></li>
+					<li><a href=""></a></li>
+					<li><a href=""></a></li>
+					<li><a href=""></a></li>
+					<li><a href=""></a></li>
+					<li><a href=""></a></li>
+					<li><a href=""></a></li>
+					<li><a href=""></a></li>
+					<li><a href=""></a></li>
+					<li><a href=""></a></li><li><a href=""></a></li>
+					<li><a href=""></a></li>
+					<li><a href=""></a></li>
+					<li><a href=""></a></li>
+					<li><a href=""></a></li>
+					<li><a href=""></a></li>
+					<li><a href=""></a></li>
+					<li><a href=""></a></li>
+					<li><a href=""></a></li>
+					<li><a href=""></a></li>
+				</ul>
+			</nav>
+
+			<!-- 콘텐츠부분 -->
+			<section>
+				<p>section</p>
+				<article>
+					<p>article</p>
+				</article>
+			</section>
+
+		</div>
+
+		<!-- 풋터 -->
+		<footer>footer</footer>
+	</div>
+
+</body>
+</html>

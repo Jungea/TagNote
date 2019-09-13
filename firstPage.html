@@ -1,0 +1,108 @@
+<!doctype html>
+<head>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.css"/>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.js"></script>
+
+  <meta charset="utf-8">
+  <title>hello</title>
+  <style>
+    body { 
+     margin: 0;
+   }
+
+   .frame {
+     display: grid;
+     grid-template-areas: 
+     "header header header"
+     "nav article article"
+     "footer footer footer";
+     grid-template-rows: 50px 1fr 30px;
+     grid-template-columns: 250px 1fr;
+     grid-gap: 0px;
+     height: 100vh;
+
+   }
+
+   /*nav close button click*/
+   .frame.closeNav {  
+     grid-template-areas: 
+     "header header header"
+     "article article article"
+     "footer footer footer";
+     grid-template-columns: 1fr;
+   }
+
+
+   /*header, footer, article, nav {
+    border: 1px solid lightgray;
+    }*/
+
+    header {
+      background-color: #00b5ad;
+      border-bottom: 1px solid lightgray;
+      color: white;
+      font-weight: bold;
+      font-size: 25px;
+      vertical-align: middle;
+      line-height: 50px;
+      padding-left: 25px;
+    }
+
+    article, nav {
+      border: 1px solid lightgray;
+    }
+    nav>.createMemo {
+      border: 1px solid red;
+    }
+
+    footer {
+      background-color: lightgray;
+    }
+
+    #pageHeader {
+      grid-area: header;
+    }
+    #pageFooter {
+      grid-area: footer;
+    }
+    #mainArticle { 
+      grid-area: article;    
+      overflow: auto;  
+    }
+    #mainNav { 
+      grid-area: nav; 
+      overflow: auto;
+
+    }
+  </style>
+
+  <script type="text/javascript">
+    $(function() {
+      $('.navbtn').click(function() {
+        $('nav').toggle();
+        $('.frame').toggleClass('closeNav');
+      })
+    })
+  </script>
+
+</head>
+<body>
+  <div class="frame">
+
+    <header id="pageHeader">TAGNOTE</header>
+    
+    <nav id="mainNav">
+      <div class="createMemo">
+        <button class="ui teal button">새 메모 쓰기</button>
+      </div>
+    </nav>
+
+    <article id="mainArticle">
+      <button class="navbtn">hello</button></article>
+
+      <footer id="pageFooter">Footer</footer>
+    </div>
+  </body>
+  </html>

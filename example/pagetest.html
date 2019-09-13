@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	
+	<style type="text/css">
+		html,body{
+			height: 100%;
+			/*overflow-y: hidden;*/
+			margin: 0;
+		}
+		.wrap {
+			display: flex;
+			flex-direction: column;
+			height: 100%;
+		}
+		.header {
+			height: 65px;
+			background-color: #00b5ad;
+		}
+
+		.content {
+			white-space: nowrap;
+			display: flex;
+			flex: 1;
+		}
+		.aside {
+			display: flex;
+			flex: none;
+			width: 400px;
+			background-color: #bfbab078;
+			overflow: auto;
+		}
+		.main{
+			display: flex;
+			flex: 1;
+			overflow: auto;
+		}
+
+	</style>
+
+</head>
+<body>
+	<div id="wrap" class="wrap">
+		<header class="header"></header>
+		<div class="content">
+			<div class="aside"></div>
+			<div class="main"></div>
+		</div>
+	</div>
+
+</body>
+</html>
