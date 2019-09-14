@@ -1,9 +1,8 @@
 <!doctype html>
 <head>
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-
-  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.css"/>
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.2/semantic.min.css">
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.4/semantic.min.js"></script>
 
   <meta charset="utf-8">
   <title>hello</title>
@@ -50,42 +49,51 @@
       padding-left: 25px;
     }
 
-    article, nav {
-      border: 1px solid lightgray;
-    }
-    nav>.createMemo {
-      border: 1px solid red;
-    }
+    nav {
+     border-right: 1px solid lightgray;
+   }
+   nav>.createMemo {
+    border-bottom: 1px solid lightgray;
+    text-align: center;
+    padding: 10px 0 10px 0;
+  }
 
-    footer {
-      background-color: lightgray;
-    }
+  nav>.createMemo>button {
+    width: 200px;
+  }
 
-    #pageHeader {
-      grid-area: header;
-    }
-    #pageFooter {
-      grid-area: footer;
-    }
-    #mainArticle { 
-      grid-area: article;    
-      overflow: auto;  
-    }
-    #mainNav { 
-      grid-area: nav; 
-      overflow: auto;
 
-    }
-  </style>
+  footer {
+    background-color: lightgray;
+  }
 
-  <script type="text/javascript">
-    $(function() {
-      $('.navbtn').click(function() {
-        $('nav').toggle();
-        $('.frame').toggleClass('closeNav');
-      })
+  #pageHeader {
+    grid-area: header;
+  }
+  #pageFooter {
+    grid-area: footer;
+  }
+  #mainArticle { 
+    grid-area: article;    
+    overflow: auto;  
+  }
+  #mainNav { 
+    grid-area: nav; 
+    overflow: auto;
+
+  }
+</style>
+
+<script type="text/javascript">
+  $(function() {
+    $('.ui.basic.button').click(function() {
+      $('nav').toggle();
+      $('.frame').toggleClass('closeNav');
     })
-  </script>
+    $('.ui.accordion').accordion();
+  })
+  
+</script>
 
 </head>
 <body>
@@ -93,14 +101,45 @@
 
     <header id="pageHeader">TAGNOTE</header>
     
-    <nav id="mainNav">
+
+    <nav id="mainNav" style="">
       <div class="createMemo">
         <button class="ui teal button">새 메모 쓰기</button>
       </div>
+      
+      <div>
+        
+      </div>
+
+      <div>
+        <div class="ui styled fluid accordion">
+          <div class="title">
+            <i class="dropdown icon"></i>
+            태그 조합 즐겨찾기
+          </div>
+          <div class="content">
+            aaa
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </div>
+          <div class="title">
+            <i class="dropdown icon"></i>
+            태그별 메모
+          </div>
+          <div class="content">
+            bbb
+          </div>
+        </div>
+      </div>
     </nav>
 
+
     <article id="mainArticle">
-      <button class="navbtn">hello</button></article>
+      <button class="ui icon basic button"><i class="icon bars"></i></button></article>
 
       <footer id="pageFooter">Footer</footer>
     </div>
