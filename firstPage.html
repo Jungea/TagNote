@@ -52,36 +52,53 @@
     nav {
      border-right: 1px solid lightgray;
    }
-   nav>.createMemo {
+   nav>.navDiv1 {
     border-bottom: 1px solid lightgray;
     text-align: center;
     padding: 10px 0 10px 0;
   }
 
-  nav>.createMemo>button {
+  nav>.navDiv1>button {
     width: 200px;
   }
 
-
-  footer {
-    background-color: lightgray;
+  nav>.navDiv2 {
+    padding: 10px 20px 10px 20px;
+  }
+  nav>.navDiv2>.ui {
+  }
+  nav>.navDiv2>.ui>.item {
+    margin: 5px;
   }
 
-  #pageHeader {
-    grid-area: header;
+  nav>.navDiv4 {
+    padding: 10px 25px 10px 25px;
   }
-  #pageFooter {
-    grid-area: footer;
-  }
-  #mainArticle { 
-    grid-area: article;    
-    overflow: auto;  
-  }
-  #mainNav { 
-    grid-area: nav; 
-    overflow: auto;
 
-  }
+  article>.artDiv1 {
+   border: 1px solid red;
+ }
+
+
+ footer {
+  background-color: lightgray;
+}
+
+#pageHeader {
+  grid-area: header;
+}
+#pageFooter {
+  grid-area: footer;
+}
+#mainArticle { 
+  grid-area: article;    
+  overflow: auto;  
+}
+#mainNav { 
+  grid-area: nav; 
+  overflow: auto;
+
+}
 </style>
 
 <script type="text/javascript">
@@ -103,15 +120,28 @@
     
 
     <nav id="mainNav" style="">
-      <div class="createMemo">
+      <div class="navDiv1">
         <button class="ui teal button">새 메모 쓰기</button>
       </div>
       
-      <div>
-        
+      <div class="navDiv2">
+        <div class="ui list">
+          <div class="item">
+            <i class="icon star"></i>
+            <div class="content">
+              <div class="header">중요한 메모</div>
+            </div>
+          </div>
+          <div class="item">
+            <i class="icon file alternate outline"></i>
+            <div class="content">
+              <div class="header">최근본 메모</div>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div>
+      <div class="navDiv3">
         <div class="ui styled fluid accordion">
           <div class="title">
             <i class="dropdown icon"></i>
@@ -135,13 +165,30 @@
           </div>
         </div>
       </div>
+      <div class="navDiv4">
+        <b>휴지통</b> <i class="icon trash alternate"></i>
+      </div>
     </nav>
 
 
     <article id="mainArticle">
-      <button class="ui icon basic button"><i class="icon bars"></i></button></article>
+      <div class="artDiv1" style="float: left;">
+        <button class="ui icon basic button" style="float: left;">
+          <i class="icon bars"></i>
+        </button>
+        <div class="ui search" style="float: left;">
+          <div class="ui icon input">
+            <input class="prompt" type="text" placeholder="Search countries...">
+            <i class="search icon"></i>
+          </div>
+          <div class="results"></div>
+        </div>
+      </div>
 
-      <footer id="pageFooter">Footer</footer>
-    </div>
-  </body>
-  </html>
+
+    </article>
+
+    <footer id="pageFooter">Footer</footer>
+  </div>
+</body>
+</html>
