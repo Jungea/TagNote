@@ -15,9 +15,10 @@
      display: grid;
      grid-template-areas: 
      "header header header"
+     "nav aside aside"
      "nav article article"
      "footer footer footer";
-     grid-template-rows: 50px 1fr 30px;
+     grid-template-rows: 50px 120px 1fr 30px;
      grid-template-columns: 250px 1fr;
      grid-gap: 0px;
      height: 100vh;
@@ -28,6 +29,7 @@
    .frame.closeNav {  
      grid-template-areas: 
      "header header header"
+     "aside aside aside"
      "article article article"
      "footer footer footer";
      grid-template-columns: 1fr;
@@ -82,7 +84,7 @@
    grid-gap: 0px;
  }
 
- article>.artDiv1 {
+ aside  {
    border-bottom: 1px solid lightgray;
  }
 
@@ -106,13 +108,24 @@
   overflow: auto;
 
 }
+#mainAside {
+  grid-area: aside; 
+  overflow: auto;
+}
 
+
+table, th, td {
+  border: 1px solid #bcbcbc;
+}
 
 </style>
 
 <script type="text/javascript">
+
   $(function() {
+
     $('.ui.basic.button').click(function() {
+      alert("message?: DOMString")
       $('nav').toggle();
       $('.frame').toggleClass('closeNav');
     })
@@ -205,44 +218,56 @@
 
     </nav>
 
+    <aside id="mainAside"> 
 
-    <article id="mainArticle">
+     <div class="artDiv1" >
+      <div>
 
-      <div class="artDiv1" >
+        <table style="border: 1px solid black">
+          <tr>
+
+            <td>
+              <button id="navColseBtn" class="ui icon basic button" >
+                <i class="icon bars"></i>
+              </button>
+            </td>
+
+            <td>
+              <div class="ui search" >
+                <div class="ui icon input">
+                  <input class="prompt" type="text" placeholder="검색">
+                  <i class="search icon"></i>
+                </div>
+                <div class="results"></div>
+              </div>
+            </td>
+
+          </tr>
 
 
-        <div>
-          <div>
-            <!-- 메뉴 접기 버튼 -->
-            <button class="ui icon basic button" >
-              <i class="icon bars"></i>
-            </button>
-          </div>
+          <tr>
 
-          <!-- 검색 입력창 -->
-          <div class="ui search" >
-            <div class="ui icon input">
-              <input class="prompt" type="text" placeholder="검색">
-              <i class="search icon"></i>
-            </div>
-            <div class="results"></div>
-          </div>
+            <td>
+              <div class="ui left floated compact segment">
+                <div class="ui fitted checkbox">
+                  <input type="checkbox">
+                  <label></label>
+                </div>
+              </div>
+            </td>
+            <td>        
+              <button class="ui button basic small" >삭제</button>
+            </td>
 
-        </div>
+          </tr>
 
-        <div>
-
-          <div class="ui left floated compact segment">
-            <div class="ui fitted checkbox">
-              <input type="checkbox">
-              <label></label>
-            </div>
-          </div>
-
-          <button class="ui button basic small" >삭제</button>
-        </div>
+        </table>
 
       </div>
+    </aside>
+
+
+    <article id="mainArticle">
       <div class="artDiv2">
         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,

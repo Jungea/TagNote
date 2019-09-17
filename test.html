@@ -1,0 +1,196 @@
+<!doctype html>
+<head>
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.2/semantic.min.css">
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.4/semantic.min.js"></script>
+
+	<meta charset="utf-8">
+	<title>hello</title>
+	<style>
+		body { 
+			margin: 0;
+		}
+
+		.frame {
+			display: grid;
+			grid-template-areas: 
+			"header header header"
+			"nav option option"
+			"nav article article"
+			"footer footer footer";
+			grid-template-rows: 50px 120px 1fr 30px;
+			grid-template-columns: 250px 1fr;
+			grid-gap: 0px;
+			height: 100vh;
+
+		}
+
+		/*nav close button click*/
+		.frame.closeNav {  
+			grid-template-areas: 
+			"header header header"
+			"article article article"
+			"footer footer footer";
+			grid-template-columns: 1fr;
+		}
+
+
+   /*header, footer, article, nav {
+    border: 1px solid lightgray;
+    }*/
+
+    header {
+    	background-color: #00b5ad;
+    	border-bottom: 1px solid lightgray;
+    	color: white;
+    	font-weight: bold;
+    	font-size: 25px;
+    	vertical-align: middle;
+    	line-height: 50px;
+    	padding-left: 25px;
+    }
+
+    nav {
+    	border-right: 1px solid lightgray;
+    }
+    nav>.navDiv1 {
+    	border-bottom: 1px solid lightgray;
+    	text-align: center;
+    	padding: 10px 0 10px 0;
+    }
+
+    nav>.navDiv1>button {
+    	width: 200px;
+    }
+
+    nav>.navDiv2 {
+    	padding: 10px 20px 10px 20px;
+    }
+    nav>.navDiv2>.ui {
+    }
+    nav>.navDiv2>.ui>.item {
+    	margin: 5px;
+    }
+
+    nav>.navDiv4 {
+    	padding: 10px 25px 10px 25px;
+    }
+
+    article {
+    	display: grid;
+    	grid-template-rows: 120px 1fr;
+    	grid-template-columns: 1fr;
+    	grid-gap: 0px;
+    }
+
+    article>.artDiv1 {
+    	border-bottom: 1px solid lightgray;
+    }
+
+
+    footer {
+    	background-color: lightgray;
+    }
+
+    #pageHeader {
+    	grid-area: header;
+    }
+    #pageFooter {
+    	grid-area: footer;
+    }
+    #mainArticle { 
+    	grid-area: article;    
+    	overflow: auto;  
+    }
+    #mainNav { 
+    	grid-area: nav; 
+    	overflow: auto;
+    }
+    #mainOption {
+    	grid-area: option; 
+    	overflow: auto;
+    }
+    article {
+    	border: 1px solid blue;
+    	display: grid;
+    	grid-template-rows: 120px 1fr;
+    	grid-template-columns: 100vh;
+    	grid-gap: 0px;
+    }
+
+    article>div {
+    	border: 1px solid red;
+    }
+
+
+    .child2 {
+    }
+
+}
+</style>
+
+<script type="text/javascript">
+	$(function() {
+		$('.ui.basic.button').click(function() {
+			$('nav').toggle();
+			$('.frame').toggleClass('closeNav');
+		})
+
+
+
+		var content = [
+		{ title: '#1학기' },
+		{ title: '#2018년' },
+		{ title: '#2019년' },
+		{ title: '#2학기' },
+		{ title: '#데이터베이스' },
+		{ title: '#프로젝트' },
+		{ title: '#안드로이드' },
+		{ title: '#Java' },
+		{ title: '#Angola' }
+		];
+
+		$('.ui.search').search({
+			source: content
+		});
+		$(".test").on("click",function(event){
+			event.stopPropagation();
+		});
+	})
+
+</script>
+
+</head>
+<body>
+	<div class="frame">
+
+		<header id="pageHeader">TAGNOTE</header>
+
+
+		<nav id="mainNav" style="">
+
+		</nav>
+
+		<option id="mainOption">
+			aaa
+		</option>
+
+		<article id="mainArticle">
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+		</article>
+
+		<footer id="pageFooter">Footer</footer>
+	</div>
+
+	<script type="text/javascript">
+		$('#target').accordion({
+			exclusive:false
+		});
+	</script>
+</body>
+</html>

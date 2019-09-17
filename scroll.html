@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.css"/>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.js"></script>
+
+<style type="text/css">
+	body {
+		margin: 0;
+	}
+
+	.grid-container {
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-template-rows: 1fr;
+		grid-gap: 15px 0;
+		height: 100vh;
+	}
+
+	header {
+		background-color: green;
+		grid-column: 1;
+		grid-row: 1
+	}
+
+	main {
+		background-color: blue;
+		grid-column: 1;
+		grid-row: 2;
+	}
+
+	nav {
+		background-color: pink;
+		grid-column: 1;
+		grid-row: 3;
+		overflow: auto;
+	}
+
+	footer {
+		background-color: teal;
+		grid-column: 1;
+		grid-row: 4;
+	}
+
+	@media only screen and (orientation: landscape) {
+		.grid-container {
+			grid-template-columns: 5fr 4fr;
+			grid-template-rows: 1fr 1fr 1fr;
+		}
+		nav {
+			grid-column: 2;
+			grid-row: 1 / span 3;
+		}
+		footer {
+			grid-row: 3;
+		}
+	}
+</style>
+<body>
+	<div class="grid-container">
+		<header>
+			<h1>Logo</h1>
+		</header>
+		<main>
+			<h1>content</h1>
+		</main>
+		<nav>
+			<h1>Navigation<br><br>nav item<br>nav item<br>nav item<br>nav item<br>nav item<br>nav item<br>nav item<br>nav item<br>nav item<br>nav item<br>nav item<br>nav item<br>nav item<br>nav item<br>nav item<br>nav item<br>nav item<br>nav item<br>nav item<br>nav item<br>nav item<br>nav item<br>nav item<br>nav item<br>nav item<br>nav item<br>nav item<br>nav item<br>nav item<br>nav item<br>nav item<br>nav item<br>nav item<br>nav item<br>nav item<br>nav item<br>nav item<br>nav item<br>nav item<br>nav item<br>nav item<br>nav item<br>nav item<br>nav item<br>nav item<br>nav item<br></h1>
+		</nav>
+		<footer>
+			<h1>Footer</h1>
+		</footer>
+	</div>
+</body>
+</html>
