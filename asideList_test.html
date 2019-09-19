@@ -1,0 +1,381 @@
+<!doctype html>
+<head>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.css"/>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.js"></script>
+
+  <meta charset="utf-8">
+  <title>asideList</title>
+  <style>
+    body { 
+      min-width: 1000px;
+      margin: 0;
+    }
+
+    .frame {
+     display: grid;
+     grid-template-areas: 
+     "header header header"
+     "nav aside aside"
+     "nav article article"
+     "footer footer footer";
+     grid-template-rows: 50px 120px 1fr 30px;
+     grid-template-columns: 250px 1fr;
+     grid-gap: 0px;
+     height: 100vh;
+
+   }
+
+   /*nav close button click*/
+   .frame.closeNav {  
+     grid-template-areas: 
+     "header header header"
+     "aside aside aside"
+     "article article article"
+     "footer footer footer";
+     grid-template-columns: 1fr;
+   }
+
+
+   /*header, footer, article, nav {
+    border: 1px solid lightgray;
+    }*/
+
+    header {
+      background-color: #00b5ad;
+      border-bottom: 1px solid lightgray;
+      color: white;
+      font-weight: bold;
+      font-size: 25px;
+      vertical-align: middle;
+      line-height: 50px;
+      padding-left: 25px;
+    }
+
+    nav {
+     border-right: 1px solid lightgray;
+   }
+   nav>.navDiv1 {
+    border-bottom: 1px solid lightgray;
+    text-align: center;
+    padding: 10px 0 10px 0;
+  }
+
+  nav>.navDiv1>button {
+    width: 200px;
+  }
+
+  nav>.navDiv2 {
+    padding: 10px 20px 10px 20px;
+  }
+  nav>.navDiv2>.ui {
+  }
+  nav>.navDiv2>.ui>.item {
+    margin: 5px;
+  }
+
+  nav>.navDiv4 {
+    padding: 10px 25px 10px 25px;
+  }
+
+
+  aside  {
+   border-bottom: 1px solid lightgray;
+ }
+
+
+ footer {
+  background-color: lightgray;
+}
+
+#pageHeader {
+  grid-area: header;
+}
+#pageFooter {
+  grid-area: footer;
+}
+#mainArticle { 
+  grid-area: article;    
+  overflow: auto;  
+}
+#mainNav { 
+  grid-area: nav; 
+  overflow: auto;
+
+}
+#mainAside {
+  grid-area: aside; 
+  overflow: auto;
+}
+
+#mainAside>.grid {
+      max-width: 400px;
+      padding: 15px;
+    }
+
+</style>
+
+<script type="text/javascript">
+  document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')
+
+  $(function() {
+
+    $('.ui.basic.button').click(function() {
+      $('nav').toggle();
+      $('.frame').toggleClass('closeNav');
+    })
+
+
+    
+    var content = [
+    { title: '#1학기' },
+    { title: '#2018년' },
+    { title: '#2019년' },
+    { title: '#2학기' },
+    { title: '#데이터베이스' },
+    { title: '#프로젝트' },
+    { title: '#안드로이드' },
+    { title: '#Java' },
+    { title: '#Angola' }
+    ];
+
+    $('.ui.search').search({
+      source: content
+    });
+    $(".test").on("click",function(event){
+      event.stopPropagation();
+    });
+  })
+
+</script>
+
+</head>
+<body>
+  <div class="frame">
+
+    <header id="pageHeader">TAGNOTE</header>
+    
+
+    <nav id="mainNav" style="">
+      <div class="navDiv1">
+        <button class="ui teal button">새 메모 쓰기</button>
+      </div>
+      
+      <div class="navDiv2">
+        <div class="ui list">
+          <div class="item">
+            <i class="icon star"></i>
+            <div class="content">
+              <div class="header">중요한 메모</div>
+            </div>
+          </div>
+          <div class="item">
+            <i class="icon file alternate outline"></i>
+            <div class="content">
+              <div class="header">최근본 메모</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="navDiv3">
+        <div id="target" class="ui styled accordion">
+          <div class="title">
+            <i class="dropdown icon"></i>
+            태그 조합 즐겨찾기 
+            <span class="test" style="float: right">
+              <a href="#setting">
+                <i class="icon setting"></i>
+              </a>
+            </span>
+          </div>
+          <div class="content">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </div>
+
+          <div class="title">
+            <i class="dropdown icon"></i>
+            태그별 메모
+          </div>
+          <div class="content">
+            bbb
+          </div>
+        </div>
+      </div>
+      <div class="navDiv4">
+        <b>휴지통</b> <i class="icon trash alternate"></i>
+      </div>
+
+    </nav>
+
+    <aside id="mainAside"> 
+
+      <div class="ui internally grid center aligned">
+        <div class="row" style="padding-bottom: 0px;">
+          <div class="three wide column" style="margin-right: 0px;">
+            <button id="navColseBtn" class="ui icon basic button" >
+              <i class="icon bars"></i>
+            </button>
+          </div>
+          <div class="ten wide column" style="padding-left: 0px;">
+            <div class="ui search">
+              <div class="ui icon input">
+                <input class="prompt" type="text" placeholder="검색">
+                <i class="search icon"></i>
+              </div>
+              <div class="results"></div>
+            </div>
+          </div>
+          <div class="three wide column">
+
+          </div>
+        </div>
+        <div class="row">
+          <div class="three wide column">
+            <div class="" style="border: 1px solid lightgray; padding: 10px; width: 40px; height: 40px;">
+              <div class="ui fitted checkbox" >
+                <input type="checkbox">
+                <label></label>
+              </div>
+            </div>
+          </div>
+          <div class="thirteen wide column left aligned" style="padding-left: 0px;">
+            <button class="ui button basic" >복원</button>
+            <button class="ui button basic" >영구삭제</button>
+            <button class="ui button basic" >비우기</button>
+          </div>
+        </div>
+    </aside>
+
+
+    <article id="mainArticle">
+      <div class="artDiv2" style="background-color: red">
+        <table class="ui striped table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Date Joined</th>
+              <th>E-mail</th>
+              <th>Called</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>John Lilki</td>
+              <td>September 14, 2013</td>
+              <td>jhlilk22@yahoo.com</td>
+              <td>No</td>
+            </tr>
+            <tr>
+              <td>Jamie Harington</td>
+              <td>January 11, 2014</td>
+              <td>jamieharingonton@yahoo.com</td>
+              <td>Yes</td>
+            </tr>
+            <tr>
+              <td>Jill Lewis</td>
+              <td>May 11, 2014</td>
+              <td>jilsewris22@yahoo.com</td>
+              <td>Yes</td>
+            </tr>
+            <tr>
+              <td>John Lilki</td>
+              <td>September 14, 2013</td>
+              <td>jhlilk22@yahoo.com</td>
+              <td>No</td>
+            </tr>
+            <tr>
+              <td>John Lilki</td>
+              <td>September 14, 2013</td>
+              <td>jhlilk22@yahoo.com</td>
+              <td>No</td>
+            </tr>
+            <tr>
+              <td>Jamie Harington</td>
+              <td>January 11, 2014</td>
+              <td>jamieharingonton@yahoo.com</td>
+              <td>Yes</td>
+            </tr>
+            <tr>
+              <td>Jill Lewis</td>
+              <td>May 11, 2014</td>
+              <td>jilsewris22@yahoo.com</td>
+              <td>Yes</td>
+            </tr>
+            <tr>
+              <td>John Lilki</td>
+              <td>September 14, 2013</td>
+              <td>jhlilk22@yahoo.com</td>
+              <td>No</td>
+            </tr>
+            <tr>
+              <td>John Lilki</td>
+              <td>September 14, 2013</td>
+              <td>jhlilk22@yahoo.com</td>
+              <td>No</td>
+            </tr>
+            <tr>
+              <td>Jamie Harington</td>
+              <td>January 11, 2014</td>
+              <td>jamieharingonton@yahoo.com</td>
+              <td>Yes</td>
+            </tr>
+            <tr>
+              <td>Jill Lewis</td>
+              <td>May 11, 2014</td>
+              <td>jilsewris22@yahoo.com</td>
+              <td>Yes</td>
+            </tr>
+            <tr>
+              <td>John Lilki</td>
+              <td>September 14, 2013</td>
+              <td>jhlilk22@yahoo.com</td>
+              <td>No</td>
+            </tr>
+            <tr>
+              <td>John Lilki</td>
+              <td>September 14, 2013</td>
+              <td>jhlilk22@yahoo.com</td>
+              <td>No</td>
+            </tr>
+            <tr>
+              <td>Jamie Harington</td>
+              <td>January 11, 2014</td>
+              <td>jamieharingonton@yahoo.com</td>
+              <td>Yes</td>
+            </tr>
+            <tr>
+              <td>Jill Lewis</td>
+              <td>May 11, 2014</td>
+              <td>jilsewris22@yahoo.com</td>
+              <td>Yes</td>
+            </tr>
+            <tr>
+              <td>John Lilki</td>
+              <td>September 14, 2013</td>
+              <td>jhlilk22@yahoo.com</td>
+              <td>No</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+
+    </article>
+
+    <footer id="pageFooter">Footer</footer>
+  </div>
+
+  <script type="text/javascript">
+   $('#target').accordion({
+    exclusive:false
+  });
+</script>
+</body>
+</html>

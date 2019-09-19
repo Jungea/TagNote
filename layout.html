@@ -27,78 +27,47 @@
    /*nav close button click*/
    .frame.closeNav {  
      grid-template-areas: 
-     "header header header"
-     "article article article"
-     "footer footer footer";
+     "header"
+     "article"
+     "footer";
      grid-template-columns: 1fr;
    }
+   article{
+    background-color: yellow;
+    display: grid;
+    grid-template-rows: 150px 1fr;
+    grid-gap: 0px;
 
-
-   /*header, footer, article, nav {
-    border: 1px solid lightgray;
-    }*/
-
-    header {
-      background-color: #00b5ad;
-      border-bottom: 1px solid lightgray;
-      color: white;
-      font-weight: bold;
-      font-size: 25px;
-      vertical-align: middle;
-      line-height: 50px;
-      padding-left: 25px;
-    }
-
-    nav {
-     border-right: 1px solid lightgray;
-   }
-   nav>.navDiv1 {
-    border-bottom: 1px solid lightgray;
-    text-align: center;
-    padding: 10px 0 10px 0;
   }
 
-  nav>.navDiv1>button {
-    width: 200px;
+  #pageHeader {
+    grid-area: header;
+  }
+  #pageFooter {
+    grid-area: footer;
+  }
+  #mainArticle { 
+    grid-area: article;    
+    overflow: auto;  
+  }
+  #mainNav { 
+    grid-area: nav; 
+    overflow: auto;
+
   }
 
-  nav>.navDiv2 {
-    padding: 10px 20px 10px 20px;
+  .wrap {
+    width: 100%;
+    padding: 20px;
   }
-  nav>.navDiv2>.ui {
+  .wrap textarea {
+    width: 100%;
+    resize: none;
+    overflow-y: hidden; /* prevents scroll bar flash */
+    padding: 1.1em; /* prevents text jump on Enter keypress */
+    padding-bottom: 0.2em;
+    line-height: 1.6;
   }
-  nav>.navDiv2>.ui>.item {
-    margin: 5px;
-  }
-
-  nav>.navDiv4 {
-    padding: 10px 25px 10px 25px;
-  }
-
-  article>.artDiv1 {
-   border: 1px solid red;
- }
-
-
- footer {
-  background-color: lightgray;
-}
-
-#pageHeader {
-  grid-area: header;
-}
-#pageFooter {
-  grid-area: footer;
-}
-#mainArticle { 
-  grid-area: article;    
-  overflow: auto;  
-}
-#mainNav { 
-  grid-area: nav; 
-  overflow: auto;
-
-}
 </style>
 
 <script type="text/javascript">
@@ -125,106 +94,44 @@
     $('.ui.search').search({
       source: content
     });
+    $('.wrap').on( 'keyup', 'textarea', function (e){
+      $(this).css('height', 'auto' );
+      $(this).height( this.scrollHeight );
+    });
+    $('.wrap').find( 'textarea' ).keyup();
 
   })
 
+  document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')
+
+  $(function() {
+    $('.ui.button').click(function(event) {
+      alert("hello")
+    });
+  });
 </script>
 
 </head>
 <body>
   <div class="frame">
 
-    <header id="pageHeader">TAGNOTE</header>
+    <header id="pageHeader" style="background-color: red;">header</header>
     
 
-    <nav id="mainNav" style="">
-      <div class="navDiv1">
-        <button class="ui teal button">새 메모 쓰기</button>
-      </div>
-      
-      <div class="navDiv2">
-        <div class="ui list">
-          <div class="item">
-            <i class="icon star"></i>
-            <div class="content">
-              <div class="header">중요한 메모</div>
-            </div>
-          </div>
-          <div class="item">
-            <i class="icon file alternate outline"></i>
-            <div class="content">
-              <div class="header">최근본 메모</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="navDiv3">
-        <div class="ui vertical fluid accordion menu">
-          <div class="item">
-            <div class="title">
-              <i class="dropdown icon"></i>
-              태그 조합 즐겨찾기
-            </div>
-            <div class="content">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-              consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-              proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </div>
-          </div>
-          <div class="item">
-            <div class="title">
-              <i class="dropdown icon"></i>
-              태그별 메모
-            </div>
-            <div class="content">
-              bbb
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="navDiv4">
-        <b>휴지통</b> <i class="icon trash alternate"></i>
-      </div>
-
-    </nav>
+    <nav id="mainNav" style="background-color: orange;">nav</nav>
 
 
     <article id="mainArticle">
+      <div class="artDiv1" style="background-color: green;">contents toolbar</div>
 
-      <div class="artDiv1" style="float: left;">
+      <div class="artDiv2" style="background-color: blue;"><div class="wrap">
+        <textarea>모든 국민은 법 앞에 평등하다. 누구든지 성별·종교 또는 사회적 신분에 의하여 정치적·경제적·사회적·문화적 생활의 모든 영역에 있어서 차별을 받지 아니한다. 국군은 국가의 안전보장과 국토방위의 신성한 의무를 수행함을 사명으로 하며, 그 정치적 중립성은 준수된다. 연소자의 근로는 특별한 보호를 받는다. 모든 국민은 신체의 자유를 가진다. 여자의 근로는 특별한 보호를 받으며, 고용·임금 및 근로조건에 있어서 부당한 차별을 받지 아니한다. 공무원의 신분과 정치적 중립성은 법률이 정하는 바에 의하여 보장된다. 정기회의 회기는 100일을, 임시회의 회기는 30일을 초과할 수 없다. 국회의원의 선거구와 비례대표제 기타 선거에 관한 사항은 법률로 정한다. 정기회의 회기는 100일을, 임시회의 회기는 30일을 초과할 수 없다. 주거에 대한 압수나 수색을 할 때에는 검사의 신청에 의하여 법관이 발부한 영장을 제시하여야 한다.
 
-        <!-- 메뉴 접기 버튼 -->
-        <button class="ui icon basic button" style="float: left;">
-          <i class="icon bars"></i>
-        </button>
-
-        <!-- 검색 입력창 -->
-        <div class="ui search" style="float: left;">
-          <div class="ui icon input">
-            <input class="prompt" type="text" placeholder="검색">
-            <i class="search icon"></i>
-          </div>
-          <div class="results"></div>
-        </div>
-        
-        
-        <div class="ui left floated compact segment">
-          <div class="ui fitted checkbox">
-            <input type="checkbox">
-            <label></label>
-          </div>
-        </div>
-
-      </div>
-
-
+        사는곳 안드로메다. 직업 개념수집. 게시글 지구인들이어 개념 항상 감사합니다. 입법권은 국회에 속한다. 국가는 청원에 대하여 심사할 의무를 진다. 주거에 대한 압수나 수색을 할 때에는 검사의 신청에 의하여 법관이 발부한 영장을 제시하여야 한다. 공공필요에 의한 재산권의 수용, 사용 또는 제한 및 그에 대한 보상은 법률로써 하되, 정당한 보상을 지급하여야 한다. 입법권은 국회에 속한다. 모든 국민은 행위시의 법률에 의하여 범죄를 구성하지 아니하는 행위로 소추되지 아니하며, 동일한 범죄에 대하여 거듭 처벌받지 아니한다. 사는곳 안드로메다. 직업 개념수집. 게시글 지구인들이어 개념 항상 감사합니다.</textarea>
+      </div></div>
     </article>
 
-    <footer id="pageFooter">Footer</footer>
+    <footer id="pageFooter" style="background-color: purple;">Footer</footer>
   </div>
 </body>
 </html>

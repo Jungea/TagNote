@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.css"/>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.js"></script>
+
+<style type="text/css">
+
+	body > .grid {
+		height: 100%;
+	}
+
+	.column {
+		max-width: 450px;
+	}
+</style>
+<body>
+	<div class="ui middle aligned center aligned grid">
+		<div class="column">
+			<h1 class="ui teal header">
+				<div class="content">
+					TAGNOTE
+				</div>
+			</h1>
+			<form class="ui large form">
+				<div class="ui stacked segment">
+					<div class="field">
+						<div class="ui left icon input">
+							<i class="user icon"></i>
+							<input type="text" name="email" placeholder="아이디">
+						</div>
+					</div>
+					<div class="field">
+						<div class="ui left icon input">
+							<i class="lock icon"></i>
+							<input type="password" name="password" placeholder="비밀번호">
+						</div>
+					</div>
+					<div class="ui fluid large teal submit button">로그인</div>
+				</div>
+
+				<div class="ui error message"></div>
+
+			</form>
+
+			<div class="ui message">
+				<a href="#">회원가입</a>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,372 @@
+<!doctype html>
+<head>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.css"/>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.js"></script>
+
+  <meta charset="utf-8">
+  <title>memo</title>
+  <style>
+    body { 
+     margin: 0;
+   }
+
+   .frame {
+     display: grid;
+     grid-template-areas: 
+     "header header header"
+     "nav article article"
+     "footer footer footer";
+     grid-template-rows: 50px 1fr 30px;
+     grid-template-columns: 250px 1fr;
+     grid-gap: 0px;
+     height: 100vh;
+
+   }
+
+   /*nav close button click*/
+   .frame.closeNav {  
+     grid-template-areas: 
+     "header"
+     "article"
+     "footer";
+     grid-template-columns: 1fr;
+   }
+
+
+   /*header, footer, article, nav {
+    border: 1px solid lightgray;
+    }*/
+
+    header {
+      background-color: #00b5ad;
+      border-bottom: 1px solid lightgray;
+      color: white;
+      font-weight: bold;
+      font-size: 25px;
+      vertical-align: middle;
+      line-height: 50px;
+      padding-left: 25px;
+    }
+
+    nav {
+     border-right: 1px solid lightgray; 
+   }
+
+   nav>.navDiv1 {
+    border-bottom: 1px solid lightgray;
+    text-align: center;
+    padding: 10px 0 10px 0;
+  }
+
+  nav>.navDiv1>button {
+    width: 200px;
+  }
+
+  nav>.navDiv2 {
+    padding: 10px 20px 10px 20px;
+  }
+  nav>.navDiv2>.ui {
+  }
+  nav>.navDiv2>.ui>.item {
+    margin: 5px;
+  }
+
+  nav>.navDiv4 {
+    padding: 10px 25px 10px 25px;
+  }
+
+  article {
+   display: grid;
+   grid-template-rows: 120px 1fr;
+   grid-gap: 0px;
+ }
+
+ article>.artDiv1 {
+   border-bottom: 1px solid lightgray;
+ }
+
+
+ footer {
+  background-color: lightgray;
+}
+
+#pageHeader {
+  grid-area: header;
+}
+#pageFooter {
+  grid-area: footer;
+}
+#mainArticle { 
+  grid-area: article;    
+  overflow: auto;  
+}
+#mainNav { 
+  grid-area: nav; 
+  overflow: auto;
+
+}
+a {
+  color: black;
+}
+
+.artDiv1>.grid {
+  max-width: 400px;
+  padding: 15px;
+}
+
+.wrap {
+  width: 100%;
+  padding: 20px;
+}
+.wrap textarea {
+  width: 100%;
+  resize: none;
+  overflow-y: hidden; /* prevents scroll bar flash */
+  padding: 1.1em; /* prevents text jump on Enter keypress */
+  padding-bottom: 0.2em;
+  line-height: 1.6;
+}
+
+</style>
+
+<script type="text/javascript">
+  document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')
+  
+  $(function() {
+    $('.close.ui.basic.button').click(function() {
+      $('nav').toggle();
+      $('.frame').toggleClass('closeNav');
+    })
+
+
+    
+    var content = [
+    { title: '#1학기' },
+    { title: '#2018년' },
+    { title: '#2019년' },
+    { title: '#2학기' },
+    { title: '#데이터베이스' },
+    { title: '#프로젝트' },
+    { title: '#안드로이드' },
+    { title: '#Java' },
+    { title: '#Angola' }
+    ];
+
+    $('.ui.search').search({
+      source: content
+    });
+    $(".test").on("click",function(event){
+      event.stopPropagation();
+    });
+
+    $('.wrap').on( 'keyup', 'textarea', function (e){
+      $(this).css('height', 'auto' );
+      $(this).height( this.scrollHeight );
+    });
+    $('.wrap').find( 'textarea' ).keyup();
+  })
+
+</script>
+
+</head>
+<body>
+  <div class="frame">
+
+    <header id="pageHeader">TAGNOTE</header>
+    
+
+    <nav id="mainNav" style="">
+      <div class="navDiv1">
+        <button class="ui teal button">새 메모 쓰기</button>
+      </div>
+      
+      <div class="navDiv2">
+        <div class="ui list">
+          <div class="item">
+            <i class="icon star"></i>
+            <div class="content">
+              <div class="header">중요한 메모</div>
+            </div>
+          </div>
+          <div class="item">
+            <i class="icon file alternate outline"></i>
+            <div class="content">
+              <div class="header">최근본 메모</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="navDiv3">
+        <div id="target" class="ui styled accordion">
+          <div class="title">
+            <i class="dropdown icon"></i>
+            태그 조합 즐겨찾기 
+            <span class="test" style="float: right">
+              <a href="">
+                <i class="icon setting"></i>
+              </a>
+            </span>
+          </div>
+          <div class="content">
+            <div class="ui list">
+              <div class="item">
+                <i class="folder icon"></i>
+                <div class="content">
+                  <div class="header">src</div>
+                  <div class="list">
+                    <div class="item">
+                      <i class="folder icon"></i>
+                      <div class="content">
+                        <div class="header">site</div>
+                      </div>
+                    </div>
+                    <div class="item">
+                      <i class="folder icon"></i>
+                      <div class="content">
+                        <div class="header">themes</div>
+                        <div class="list">
+                          <div class="item">
+                            <i class="folder icon"></i>
+                            <div class="content">
+                              <div class="header">default</div>
+                            </div>
+                          </div>
+                          <div class="item">
+                            <i class="folder icon"></i>
+                            <div class="content">
+                              <div class="header">my_theme</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="item">
+                      <i class="file icon"></i>
+                      <div class="content">
+                        <div class="header">theme.config</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="item">
+                <i class="folder icon"></i>
+                <div class="content">
+                  <div class="header">dist</div>
+                  <div class="list">
+                    <div class="item">
+                      <i class="folder icon"></i>
+                      <div class="content">
+                        <div class="header">components</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="item">
+                <i class="file icon"></i>
+                <div class="content">
+                  <div class="header">semantic.json</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="title">
+            <i class="dropdown icon"></i>
+            태그별 메모
+          </div>
+          <div class="content">
+            <div class="ui list">
+              <a class="item" href="a">#2018</a>
+              <a class="item">#2019</a>
+              <a class="item">#1학기</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="navDiv4">
+        <b>휴지통</b> <i class="icon trash alternate"></i>
+      </div>
+
+    </nav>
+
+
+    <article id="mainArticle">
+
+      <div class="artDiv1" id="aaa">
+
+       <div class="ui internally grid center aligned">
+        <div class="row" style="padding-bottom: 0px;">
+          <div class="three wide column" style="margin-right: 0px;">
+            <button id="navColseBtn" class="close ui icon basic button" >
+              <i class="icon bars"></i>
+            </button>
+          </div>
+          <div class="ten wide column" style="padding-left: 0px;">
+            <div class="ui search">
+              <div class="ui icon input">
+                <input class="prompt" type="text" placeholder="검색">
+                <i class="search icon"></i>
+              </div>
+              <div class="results"></div>
+            </div>
+          </div>
+          <div class="three wide column">
+
+          </div>
+        </div>
+        <div class="row">
+          <div class="three wide column">
+            <div class="" style="border: 1px solid lightgray; padding: 10px; width: 40px; height: 40px;">
+              <div class="ui fitted checkbox" >
+                <input type="checkbox">
+                <label></label>
+              </div>
+            </div>
+          </div>
+          <div class="thirteen wide column left aligned" style="padding-left: 5px;">
+            <button class="ui button basic" >저장</button>
+            <button class="ui button basic" >삭제</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="artDiv2" style="width: 100%; height: 100%">
+      <div class="tagBar" >
+
+      </div>
+
+      <div class="memoDiv">
+
+        <div class="field wrap">
+          <textarea style="background-color: LightYellow; /*border: none; resize: none;*/ " >Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias odio voluptate, dolore repellat consectetur fugit corporis dolores temporibus harum eligendi, nulla nobis sapiente dolor, architecto consequuntur? Suscipit aliquam eius cumque.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias odio voluptate, dolore repellat consectetur fugit corporis dolores temporibus harum eligendi, nulla nobis sapiente dolor, architecto consequuntur? Suscipit aliquam eius cumque.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias odio voluptate, dolore repellat consectetur fugit corporis dolores temporibus harum eligendi, nulla nobis sapiente dolor, architecto consequuntur? Suscipit aliquam eius cumque.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias odio voluptate, dolore repellat consectetur fugit corporis dolores temporibus harum eligendi, nulla nobis sapiente dolor, architecto consequuntur? Suscipit aliquam eius cumque.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias odio voluptate, dolore repellat consectetur fugit corporis dolores temporibus harum eligendi, nulla nobis sapiente dolor, architecto consequuntur? Suscipit aliquam eius cumque.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias odio voluptate, dolore repellat consectetur fugit corporis dolores temporibus harum eligendi, nulla nobis sapiente dolor, architecto consequuntur? Suscipit aliquam eius cumque.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias odio voluptate, dolore repellat consectetur fugit corporis dolores temporibus harum eligendi, nulla nobis sapiente dolor, architecto consequuntur? Suscipit aliquam eius cumque.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias odio voluptate, dolore repellat consectetur fugit corporis dolores temporibus harum eligendi, nulla nobis sapiente dolor, architecto consequuntur? Suscipit aliquam eius cumque.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias odio voluptate, dolore repellat consectetur fugit corporis dolores temporibus harum eligendi, nulla nobis sapiente dolor, architecto consequuntur? Suscipit aliquam eius cumque.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias odio voluptate, dolore repellat consectetur fugit corporis dolores temporibus harum eligendi, nulla nobis sapiente dolor, architecto consequuntur? Suscipit aliquam eius cumque.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias odio voluptate, dolore repellat consectetur fugit corporis dolores temporibus harum eligendi, nulla nobis sapiente dolor, architecto consequuntur? Suscipit aliquam eius cumque.</textarea>
+        </div>
+      </div>
+
+    </div>
+
+
+  </article>
+
+  <footer id="pageFooter">Footer</footer>
+</div>
+
+<div style="position: fixed; bottom: 50px; right: 30px; ">              
+  <button class="toTop ui icon button teal" onclick="location.href='#aaa'">
+    <i class="icon arrow up"></i>
+  </button>
+</div>
+
+<script type="text/javascript">
+ $('#target').accordion({
+  exclusive:false
+});
+ $('.ui.rating').rating();
+</script>
+</body>
+</html>
