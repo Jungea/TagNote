@@ -6,7 +6,7 @@
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.js"></script>
 
   <meta charset="utf-8">
-  <title>article-1</title>
+  <title>memo</title>
   <style>
     body { 
      margin: 0;
@@ -116,11 +116,30 @@ a {
   padding: 15px;
 }
 
+.wrap {
+  width: 100%;
+  padding: 20px;
+}
+.wrap textarea {
+  width: 100%;
+  resize: none;
+  overflow-y: hidden; /* prevents scroll bar flash */
+  padding: 1.1em; /* prevents text jump on Enter keypress */
+  padding-bottom: 0.2em;
+  line-height: 1.6;
+  border: none;
+}
+
+.wrap textarea:focus {
+  outline: none;
+}
 </style>
 
 <script type="text/javascript">
   document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')
   
+  var timer=null;
+
   $(function() {
     $('.close.ui.basic.button').click(function() {
       $('nav').toggle();
@@ -147,7 +166,39 @@ a {
     $(".test").on("click",function(event){
       event.stopPropagation();
     });
+
+    $('.wrap').on( 'keyup', 'textarea', function (e){
+      var t = $('#mainArticle').scrollTop();
+      var ta = $('#mainArticle').innerHeight();
+      var d = $('#mainArticle')[0].scrollHeight;
+
+      $(this).css('height', 'auto' );
+      $(this).height( this.scrollHeight );
+      if(t+ta>=d) {
+        d = $('#mainArticle')[0].scrollHeight;
+        $('#mainArticle').scrollTop(d+20);
+      }
+      else
+        $('#mainArticle').scrollTop(t);
+    });
+    $('.wrap').find( 'textarea' ).keyup();
+
+    $('.memo').click(function(event) {
+     $('.memoTextarea').focus();
+   });
+
+    $('.memoTextarea').focus();
+
+    timer = setInterval(function() {
+      $('textarea').trigger('keyup');
+    }, 500)
+
+    $(".tagBar").on("click",function(event){
+      event.stopPropagation();
+    });
+
   })
+
 
 </script>
 
@@ -156,13 +207,13 @@ a {
   <div class="frame">
 
     <header id="pageHeader">TAGNOTE</header>
-    
 
-    <nav id="mainNav">
-      <div class="navDiv1">
+
+    <nav id="mainNav" style="">
+       <div class="navDiv1">
         <button class="ui teal button" onclick="location.href='tag.html'">새 메모 쓰기</button>
       </div>
-      
+
       <div class="navDiv2">
         <div class="ui list">
           <a class="item" href="list.html?star">
@@ -275,127 +326,106 @@ a {
           <i class="icon trash alternate" style="margin-right: 10px"></i><b>휴지통</b> 
         </a>
         <span class="test" style="float: right" onclick="confirm('휴지통을 비우시겠습니까?')">
-            <i class="icon trash alternate outline small"></i>
+          <i class="icon trash alternate outline small"></i>
         </span>
       </nav>
 
+    </nav>
 
-      <article id="mainArticle">
 
-        <div class="artDiv1" id="toTop">
+    <article id="mainArticle" >
 
-         <div class="ui internally grid center aligned">
-          <div class="row" style="padding-bottom: 0px;">
-            <div class="three wide column" style="margin-right: 0px;">
-              <button id="navColseBtn" class="close ui icon basic button" >
-                <i class="icon bars"></i>
-              </button>
-            </div>
-            <div class="ten wide column" style="padding-left: 0px;">
-              <div class="ui search">
-                <div class="ui icon input">
-                  <input class="prompt" type="text" placeholder="검색">
-                  <i class="search icon"></i>
-                </div>
-                <div class="results"></div>
+      <div class="artDiv1" id="toTop">
+
+       <div class="ui internally grid center aligned">
+        <div class="row" style="padding-bottom: 0px;">
+          <div class="three wide column" style="margin-right: 0px;">
+            <button id="navColseBtn" class="close ui icon basic button" >
+              <i class="icon bars"></i>
+            </button>
+          </div>
+          <div class="ten wide column" style="padding-left: 0px;">
+            <div class="ui search">
+              <div class="ui icon input">
+                <input class="prompt" type="text" placeholder="검색">
+                <i class="search icon"></i>
               </div>
-            </div>
-            <div class="three wide column">
-
+              <div class="results"></div>
             </div>
           </div>
-          <div class="row">
-            <div class="three wide column">
-              <div class="" style="border: 1px solid lightgray; padding: 10px; width: 40px; height: 40px;">
-                <div class="ui fitted checkbox" >
-                  <input type="checkbox">
-                  <label></label>
-                </div>
-              </div>
-            </div>
-            <div class="thirteen wide column left aligned" style="padding-left: 5px;">
-              <button class="ui button basic" >삭제</button>
-            </div>
-          </div>
+          <div class="three wide column">
 
+          </div>
         </div>
-        <div class="artDiv2">
-          <table class="ui table">
-            <thead class="full-width">
-              <tr>
-                <th class="one wide">
-                  <div class="ui checkbox">
-                    <input type="checkbox" checked> <label></label>
-                  </div>
-                </th>
-                <th class="one wide"><div class="fixed ui star rating " data-rating="1" data-max-rating="1"></div></th>
-                <th class="ten wide">Tags</th>
-                <th class="four wide">Date</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="collapsing">
-                  <div class="ui checkbox">
-                    <input type="checkbox"> <label></label>
-                  </div>
-                </td>
-                <td>
-                  <div class="ui star rating" data-max-rating="1"></div>
-                </td>
-                <td>#2018 #데이터통신 #유상신</td>
-                <td>2019.09.17 08:59</td>
+        <div class="row">
+          <div class="three wide column">
+            <div class="" style="border: 1px solid lightgray; padding: 10px; width: 40px; height: 40px;">
+              <div class="ui fitted checkbox" >
+                <input type="checkbox" disabled="disbled">
+                <label></label>
+              </div>
+            </div>
+          </div>
+          <div class="thirteen wide column left aligned" style="padding-left: 5px;">
+            <button class="ui button basic" type="submit" form="textareaForm" >저장</button>
+            <button class="ui button basic" type="button" onclick="location.href='list.html'">삭제</button>
+            <button class="ui button basic" type="button" onclick="alert('태그 목록창')">태그목록</button>
+          </div>
+        </div>
 
-              </tr>
-              <tr>
-                <td class="collapsing">
-                  <div class="ui fitted checkbox">
-                    <input type="checkbox"> <label></label>
-                  </div>
-                </td>
-                <td>
-                  <div class="ui star rating" data-max-rating="1"></div>
-                </td>
-                <td>#2019 #자료구조 #자바 #노은하</td>
-                <td>2019.09.14 10:30</td>
+      </div>
+    </div>
+    <div class="artDiv2">
 
-              </tr>
-              <tr>
-                <td class="collapsing">
-                  <div class="ui fitted checkbox">
-                    <input type="checkbox"> <label></label>
-                  </div>
-                </td>
-                <td>
-                  <div class="ui star rating" data-max-rating="1"></div>
-                </td>
-                <td>#2019 #디비캡스톤디자인 #홍은지 #프로젝트</td>
-                <td>2019.09.14 10:30</td>
+      <div class="memo" style="height: 100%; background-color: LightYellow;">
 
-              </tr>
-            </tbody>
-          </table>
+        <div class="tagBar" style="background-color: white; border-bottom: 1px solid lightgray; width: 100%">
 
+          <form action="" class="ui form" ><!-- style="margin-top: 11px; margin-left: 15px" -->
+            <div class="fifteen wide field center floated" style="margin: 10px;">
+              <div class="ui fluid search selection dropdown">
+                <input type="hidden" name="country">
+                <i class="dropdown icon"></i>
+                <div class="default text">태그 설정</div>
+                <div class="menu">
+                  <div class="item" data-value="af">1학기</div>
+                  <div class="item" data-value="ax">2018년</div>
+                  <div class="item" data-value="al">2학기</div>
+                  <div class="item" data-value="dz">데이터베이스</div>
+                  <div class="item" data-value="as">프로젝트</div>
+                  <div class="item" data-value="ad">안드로이드</div>
+                  <div class="item" data-value="ao">Java</div>
+                  <div class="item" data-value="ai">Angola</div>
+                </div>
+              </div>
+            </div>
+          </form>
         </div>
 
 
-      </article>
-
-      <footer id="pageFooter">Footer</footer>
+        <form class="field wrap" id="textareaForm" action="list.html">
+          <textarea id="ta" class="memoTextarea" name="memo" style="background-color: LightYellow;" ></textarea>
+        </form>
+      </div>
     </div>
 
-    <div style="position: fixed; bottom: 50px; right: 30px; ">              
-      <button class="toTop ui icon button teal" onclick="location.href='#toTop'">
-        <i class="icon arrow up"></i>
-      </button>
-    </div>
+  </article>
 
-    <script type="text/javascript">
-     $('#target').accordion({
-      exclusive: false
-    });
-     $('.ui.rating').rating();
+  <footer id="pageFooter">Footer</footer>
+</div>
 
-   </script>
- </body>
- </html>
+<div style="position: fixed; bottom: 50px; right: 30px; ">              
+  <button class="toTop ui icon button teal" onclick="location.href='#toTop'">
+    <i class="icon arrow up"></i>
+  </button>
+</div>
+
+<script type="text/javascript">
+ $('#target').accordion({
+  exclusive:false
+});
+ $('.ui.rating').rating();
+ $('.ui.dropdown').dropdown();
+</script>
+</body>
+</html>
