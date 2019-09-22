@@ -116,6 +116,35 @@ a {
   padding: 15px;
 }
 
+/*태그 조합 즐겨찾기*/
+.tree {
+  /*border:1px solid black;*/
+  margin-top: 0px;
+}
+
+.tree, .tree ul, .modalTree, .modalTree ul  {
+  list-style: none;
+  padding-left: 5px;
+}
+
+
+.tree a{
+  text-decoration: none;
+  color:#393939;
+}
+
+li {
+  margin: 8px 5px;
+}
+
+/*.tree ul {
+  display: none;
+}*/
+
+.item-open {
+  display: block;
+}
+
 </style>
 
 <script type="text/javascript">
@@ -125,6 +154,8 @@ a {
     $('.close.ui.basic.button').click(function() {
       $('nav').toggle();
       $('.frame').toggleClass('closeNav');
+
+
     })
 
 
@@ -147,7 +178,31 @@ a {
     $(".test").on("click",function(event){
       event.stopPropagation();
     });
+
+    // 태그조합 즐겨찾기
+    $('li').click(function() {
+      if($(this).children('ul').length>0) {
+        $(this).children('ul').toggle();
+        $(this).children('i').toggleClass('outline');
+      }
+    })
+
+    $('li').on("click",function(event){
+      event.stopPropagation();
+    });
+
+    $('.ui.checkbox').on("click",function(event){
+      event.stopPropagation();
+    });
+
+    $('.ui.rating').on("click",function(event){
+      event.stopPropagation();
+    });
+
+
   })
+
+
 
 </script>
 
@@ -160,7 +215,7 @@ a {
 
     <nav id="mainNav">
       <div class="navDiv1">
-        <button class="ui teal button" onclick="location.href='tag.html'">새 메모 쓰기</button>
+        <button class="ui teal button" onclick="location.href='memo.html'">새 메모 쓰기</button>
       </div>
       
       <div class="navDiv2">
@@ -182,90 +237,85 @@ a {
 
       <div class="navDiv3">
         <div id="target" class="ui styled accordion">
-          <div class="title">
+          <div class="title" style="border: 1px solid lightgray;">
             <i class="dropdown icon"></i>
             태그 조합 즐겨찾기 
             <span class="test" style="float: right">
-              <a href="">
+              <a>
                 <i class="icon setting"></i>
               </a>
             </span>
           </div>
-          <div class="content">
-            <div class="ui list">
-              <div class="item">
-                <i class="folder icon"></i>
-                <div class="content">
-                  <div class="header">src</div>
-                  <div class="list">
-                    <div class="item">
-                      <i class="folder icon"></i>
-                      <div class="content">
-                        <div class="header">site</div>
-                      </div>
-                    </div>
-                    <div class="item">
-                      <i class="folder icon"></i>
-                      <div class="content">
-                        <div class="header">themes</div>
-                        <div class="list">
-                          <div class="item">
-                            <i class="folder icon"></i>
-                            <div class="content">
-                              <div class="header">default</div>
-                            </div>
-                          </div>
-                          <div class="item">
-                            <i class="folder icon"></i>
-                            <div class="content">
-                              <div class="header">my_theme</div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="item">
-                      <i class="file icon"></i>
-                      <div class="content">
-                        <div class="header">theme.config</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <i class="folder icon"></i>
-                <div class="content">
-                  <div class="header">dist</div>
-                  <div class="list">
-                    <div class="item">
-                      <i class="folder icon"></i>
-                      <div class="content">
-                        <div class="header">components</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <i class="file icon"></i>
-                <div class="content">
-                  <div class="header">semantic.json</div>
-                </div>
-              </div>
-            </div>
+          <div class="content" >
+            <ul class="tree">
+              <li>
+                <span style="color: #00b5ad; font-weight: bold">태그조합</span>
+                <ul class="root list">
+                  <li>
+                    <i class="bookmark icon yellow"></i><span class="item">#2018</span>
+
+                    <ul>
+                      <li><i class="bookmark icon yellow"></i><span class="item">#1학기</span>
+                        <ul>
+                          <li><i class="bookmark icon yellow"></i><span class="item">#데이터베이스</span></li>
+                          <li><i class="bookmark icon yellow"></i><span class="item">#자바</span></li>
+                        </ul>
+
+                      </li>
+                      <li><i class="bookmark icon yellow"></i><span class="item">#2학기</span></li>
+                    </ul>
+                  </li>
+                  <li><i class="bookmark icon yellow"></i><span class="item">#2019</span>
+                    <ul>
+                      <li><i class="bookmark icon yellow"></i><span class="item">#1학기</span></li>
+                      <li><i class="bookmark icon yellow"></i><span class="item">#2학기</span></li>
+                    </ul>
+                  </li>
+                  <li>
+                    <i class="bookmark icon yellow"></i><span class="item">#프로젝트</span>
+                    <ul>
+                      <li><i class="bookmark icon yellow"></i><span class="item">#데이터베이스</span></li>
+                      <li><i class="bookmark icon yellow"></i><span class="item">#자바프로젝트</span></li>
+                      <li><i class="bookmark icon yellow"></i><span class="item">#디비캡스톤디자인</span>
+                        <ul>  
+                          <li><i class="bookmark icon yellow"></i><span class="item">#TagNote</span></li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
           </div>
 
-          <div class="title">
+          <div class="title" style="border: 1px solid lightgray;">
             <i class="dropdown icon"></i>
             태그별 메모
           </div>
           <div class="content">
-            <div class="ui list">
-              <a class="item" href="list.html?2018">#2018</a>
-              <a class="item" href="list.html?2019">#2019</a>
-              <a class="item" href="list.html?1학기">#1학기</a>
-            </div>
+            <ul class="tree">
+              <li>
+                <span style="color: #00b5ad; font-weight: bold">태그목록</span>
+                <ul class="root list">
+                  <li>
+                    <span class="item">#2018</span>
+                  </li>
+                  <li>
+                    <span class="item">#2019</span>
+                  </li>
+                  <li>
+                    <span class="item">#2019</span>
+                  </li>
+                  <li>
+                    <span class="item">#2019</span>
+                  </li>
+                  <li>
+                    <span class="item">#프로젝트</span>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+
           </div>
         </div>
       </div>
@@ -275,7 +325,7 @@ a {
           <i class="icon trash alternate" style="margin-right: 10px"></i><b>휴지통</b> 
         </a>
         <span class="test" style="float: right" onclick="confirm('휴지통을 비우시겠습니까?')">
-            <i class="icon trash alternate outline small"></i>
+          <i class="icon trash alternate outline small"></i>
         </span>
       </nav>
 
@@ -320,7 +370,7 @@ a {
 
         </div>
         <div class="artDiv2">
-          <table class="ui table">
+          <table class="ui table selectable">
             <thead class="full-width">
               <tr>
                 <th class="one wide">
@@ -334,7 +384,7 @@ a {
               </tr>
             </thead>
             <tbody>
-              <tr>
+              <tr onclick="location.href='memo.html?memoNum=1'">
                 <td class="collapsing">
                   <div class="ui checkbox">
                     <input type="checkbox"> <label></label>
@@ -347,7 +397,7 @@ a {
                 <td>2019.09.17 08:59</td>
 
               </tr>
-              <tr>
+              <tr onclick="location.href='memo.html?memoNum=2'">
                 <td class="collapsing">
                   <div class="ui fitted checkbox">
                     <input type="checkbox"> <label></label>
@@ -360,7 +410,7 @@ a {
                 <td>2019.09.14 10:30</td>
 
               </tr>
-              <tr>
+              <tr onclick="location.href='memo.html?memoNum=3'">
                 <td class="collapsing">
                   <div class="ui fitted checkbox">
                     <input type="checkbox"> <label></label>
@@ -390,12 +440,87 @@ a {
       </button>
     </div>
 
-    <script type="text/javascript">
-     $('#target').accordion({
-      exclusive: false
-    });
-     $('.ui.rating').rating();
+    <!-- modal -->
+    <div class="ui modal small">
+      <i class="close icon"></i>
+      <div class="header">
+        태그 조합 즐겨찾기 설정
+      </div>
+      <div class="scrolling content" >
+       <ul class="modalTree">
+        <li>
+          <span style="color: #00b5ad; font-weight: bold">태그조합</span>
+          <ul class="root list">
+            <li>
+              <i class="bookmark icon yellow"></i><span class="item">#2018</span>
 
-   </script>
- </body>
- </html>
+              <ul>
+                <li><i class="bookmark icon yellow"></i><span class="item">#1학기</span>
+                  <ul>
+                    <li><i class="bookmark icon yellow"></i><span class="item">#데이터베이스</span></li>
+                    <li><i class="bookmark icon yellow"></i><span class="item">#자바</span></li>
+                  </ul>
+
+                </li>
+                <li><i class="bookmark icon yellow"></i><span class="item">#2학기</span></li>
+              </ul>
+            </li>
+            <li><i class="bookmark icon yellow"></i><span class="item">#2019</span>
+              <ul>
+                <li><i class="bookmark icon yellow"></i><span class="item">#1학기</span></li>
+                <li><i class="bookmark icon yellow"></i><span class="item">#2학기</span></li>
+              </ul>
+            </li>
+            <li>
+              <i class="bookmark icon yellow"></i><span class="item">#프로젝트</span>
+              <ul>
+                <li><i class="bookmark icon yellow"></i><span class="item">#데이터베이스</span></li>
+                <li><i class="bookmark icon yellow"></i><span class="item">#자바프로젝트</span></li>
+                <li><i class="bookmark icon yellow"></i><span class="item">#디비캡스톤디자인</span>
+                  <ul>  
+                    <li><i class="bookmark icon yellow"></i><span class="item">#TagNote</span></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div class="ui input fluid">
+      <input type="text" placeholder="Search...">
+    </div>
+
+
+
+    <div class="actions">
+      <div class="negative ui deny button">
+        삭제
+      </div>
+      <div class="ui button">
+        취소
+      </div>
+      <div class="ui positive right labeled icon button">
+        추가
+        <i class="checkmark icon"></i>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+   $('#target').accordion({
+    exclusive: false
+  });
+   $('.ui.rating').rating();
+
+   $(function() {
+    $('.icon.setting').click(function(event) {
+      $('.ui.modal').modal('show');
+    });
+
+
+  });
+</script>
+</body>
+</html>

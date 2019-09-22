@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.css"/>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.js"></script>
+
+	<meta charset="utf-8">
+	<title></title>
+
+	<style type="text/css">
+
+		.tree, .tree ul {
+			list-style: none;
+			padding-left:17px;
+		}
+
+		
+		.tree a{
+			text-decoration: none;
+			color:#393939;
+		}
+
+		li {
+			margin: 8px 5px;
+		}
+
+		.tree ul {
+			display: none;
+		}
+
+		.item-open {
+			display: block;
+		}
+
+
+	</style>
+
+	<script type="text/javascript">
+		document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')
+
+		$(function() {
+			$('li').click(function() {
+				if($(this).children('ul').length>0) {
+					$(this).children('ul').toggle();
+					$(this).children('i').toggleClass('outline');
+				}
+			})
+
+			$('li').on("click",function(event){
+				event.stopPropagation();
+			});
+		});
+	</script>
+</head>
+<body>
+	<ul class="tree">
+		<li>
+			<span style="color: #00b5ad; font-weight: bold">태그조합</span>
+			<ul class="root list">
+				<li>
+					<i class="bookmark icon yellow"></i><span class="item">#2018</span>
+
+					<ul>
+						<li><i class="bookmark icon yellow"></i><span class="item">#1학기</span>
+							<ul>
+								<li><i class="bookmark icon yellow"></i><span class="item">#데이터베이스</span></li>
+								<li><i class="bookmark icon yellow"></i><span class="item">#자바</span></li>
+							</ul>
+
+						</li>
+						<li><i class="bookmark icon yellow"></i><span class="item">#2학기</span></li>
+					</ul>
+				</li>
+				<li><i class="bookmark icon yellow"></i><span class="item">#2019</span>
+					<ul>
+						<li><i class="bookmark icon yellow"></i><span class="item">#1학기</span></li>
+						<li><i class="bookmark icon yellow"></i><span class="item">#2학기</span></li>
+					</ul>
+				</li>
+				<li>
+					<i class="bookmark icon yellow"></i><span class="item">#프로젝트</span>
+					<ul>
+						<li><i class="bookmark icon yellow"></i><span class="item">#데이터베이스</span></li>
+						<li><i class="bookmark icon yellow"></i><span class="item">#자바프로젝트</span></li>
+						<li><i class="bookmark icon yellow"></i><span class="item">#디비캡스톤디자인</span>
+							<ul>	
+								<li><i class="bookmark icon yellow"></i><span class="item">#TagNote</span></li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+	</ul>
+
+</body>
+</html>

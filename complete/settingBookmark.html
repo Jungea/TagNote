@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.css"/>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.js"></script>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+
+<style type="text/css">
+
+	body > .grid {
+		height: 100%;
+	}
+
+	.column {
+		max-width: 800px;
+	}
+
+	a {
+		color: black;
+	}
+
+	/*태그 조합 즐겨찾기*/
+	.tree {
+		/*border:1px solid black;*/
+		margin-top: 0px;
+	}
+
+	.tree, .tree ul {
+		list-style: none;
+		padding-left: 5px;
+	}
+
+
+	.tree a{
+		text-decoration: none;
+		color:#393939;
+	}
+
+	li {
+		margin: 8px 10px;
+	}
+
+	.three.column>.column {
+		border: 1px solid lightgray;
+	}
+
+	.grid>.column {
+		border:1px solid lightgray;
+	}
+</style>
+<body>
+	<div class="ui grid middle aligned center aligned">
+		<div class="column" style="text-align: left">
+			<h2 class="ui teal header">
+				태그 목록
+			</h2>
+			<div class="ui divider"></div>
+			
+			<div class="ui grid three column">
+				<div class=" column">
+					<ul class="tree">
+						<li>
+							<span style="color: #00b5ad; font-weight: bold">태그조합</span>
+							<ul class="root list">
+								<li>
+									<i class="bookmark icon yellow"></i><span class="item">#2018</span>
+
+									<ul>
+										<li><i class="bookmark icon yellow"></i><span class="item">#1학기</span>
+											<ul>
+												<li><i class="bookmark icon yellow"></i><span class="item">#데이터베이스</span></li>
+												<li><i class="bookmark icon yellow"></i><span class="item">#자바</span></li>
+											</ul>
+
+										</li>
+										<li><i class="bookmark icon yellow"></i><span class="item">#2학기</span></li>
+									</ul>
+								</li>
+								<li><i class="bookmark icon yellow"></i><span class="item">#2019</span>
+									<ul>
+										<li><i class="bookmark icon yellow"></i><span class="item">#1학기</span></li>
+										<li><i class="bookmark icon yellow"></i><span class="item">#2학기</span></li>
+									</ul>
+								</li>
+								<li>
+									<i class="bookmark icon yellow"></i><span class="item">#프로젝트</span>
+									<ul>
+										<li><i class="bookmark icon yellow"></i><span class="item">#데이터베이스</span></li>
+										<li><i class="bookmark icon yellow"></i><span class="item">#자바프로젝트</span></li>
+										<li><i class="bookmark icon yellow"></i><span class="item">#디비캡스톤디자인</span>
+											<ul>  
+												<li><i class="bookmark icon yellow"></i><span class="item">#TagNote</span></li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+				<div class=" column">
+					<div class="ui search ">
+						<div class="ui icon input fluid">
+							<input class="prompt" type="text" placeholder="검색">
+							<i class="search icon"></i>
+						</div>
+					</div>
+
+					<ul class="tree">
+						<li>
+							<span style="color: #00b5ad; font-weight: bold">태그목록</span>
+							<ul class="root list">
+								<li>
+									<span class="item">#2018</span>
+								</li>
+								<li>
+									<span class="item">#2019</span>
+								</li>
+								<li>
+									<span class="item">#2019</span>
+								</li>
+								<li>
+									<span class="item">#2019</span>
+								</li>
+								<li>
+									<span class="item">#프로젝트</span>
+								</li>
+							</ul>
+						</li>
+					</ul>
+
+				</div>
+				<div class="column">
+					<form id="addTagForm" action="memo.html" style="height: 100%; width: 100%; border: 1px solid lightgray; padding: 10px">
+						#2019<br>#2학기<br>#html<br>#spring<br>#mysql<br>#mybatis<br>#데이터베이스캡스톤
+					</form>
+				</div>
+
+			</div>
+			<div class="ui divider"></div>
+			<button class="ui button teal" type="submit" form="addTagForm" style="float: right;">추가</button>
+			<button class="ui button" type="button" onclick="location.href='memo.html'" style="float: right;">취소</button>
+		</div>
+	</div>
+</body>
+</html>
