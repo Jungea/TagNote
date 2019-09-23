@@ -1,0 +1,392 @@
+<!doctype html>
+<head>
+  <link rel="stylesheet" href="res/common.css">
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.css"/>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.js"></script>
+
+  <script src="res/common.js"></script>
+  <meta charset="utf-8">
+  <title>list</title>
+  <style>
+
+    .artDiv1>.grid {
+     max-width: 400px;
+     padding: 15px;
+   }
+
+   /*태그 조합 즐겨찾기*/
+   .tree {
+    /*border:1px solid black;*/
+    margin-top: 0px;
+  }
+
+  .tree, .tree ul, .modalTree, .modalTree ul  {
+    list-style: none;
+    padding-left: 5px;
+  }
+
+
+  .tree a{
+    text-decoration: none;
+    color:#393939;
+  }
+
+  li {
+    margin: 8px 5px;
+  }
+
+/*.tree ul {
+  display: none;
+  }*/
+
+  .item-open {
+    display: block;
+  }
+
+</style>
+
+<script type="text/javascript">
+  
+  $(function() {
+    
+    // 태그조합 즐겨찾기
+    $('li').click(function() {
+      if($(this).children('ul').length>0) {
+        $(this).children('ul').toggle();
+        $(this).children('i').toggleClass('outline');
+      }
+    })
+
+    $('li').on("click",function(event){
+      event.stopPropagation();
+    });
+
+    $('.ui.checkbox').on("click",function(event){
+      event.stopPropagation();
+    });
+
+    $('.ui.rating').on("click",function(event){
+      event.stopPropagation();
+    });
+
+
+  })
+
+
+
+</script>
+
+</head>
+<body>
+  <div class="frame">
+
+    <header id="pageHeader">
+      <a href="list.html" style="color: white !important;">TAGNOTE</a>
+    </header>
+    
+
+    <nav id="mainNav">
+      <div class="navDiv1">
+        <button class="ui teal button" onclick="location.href='memo.html'">새 메모 쓰기</button>
+      </div>
+
+      <div class="navDiv2">
+        <div class="ui list">
+          <a class="item" href="list.html?star">
+            <div class="fixed ui star rating" data-rating="1" data-max-rating="1" style="float: left; margin-right: 9px;"></div>
+            <div class="content">
+              <b>중요한 메모</b>
+            </div>
+          </a>
+          <a class="item" href="list.html?recent">
+            <i class="icon sticky note outline" style="padding-left: 3px;"></i>
+            <div class="content">
+              <b>최근본 메모</b>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="navDiv3">
+        <div id="target" class="ui styled accordion">
+          <div class="title" style="border: 1px solid lightgray;">
+            <i class="dropdown icon"></i>
+            태그 조합 즐겨찾기 
+            <span class="test" style="float: right">
+              <a>
+                <i class="icon setting"></i>
+              </a>
+            </span>
+          </div>
+          <div class="content" >
+            <ul class="tree">
+              <li>
+                <span style="color: #00b5ad; font-weight: bold">태그조합</span>
+                <ul class="root list">
+                  <li>
+                    <i class="bookmark icon yellow"></i><span class="item">#2018</span>
+
+                    <ul>
+                      <li><i class="bookmark icon yellow"></i><span class="item">#1학기</span>
+                        <ul>
+                          <li><i class="bookmark icon yellow"></i><span class="item">#데이터베이스</span></li>
+                          <li><i class="bookmark icon yellow"></i><span class="item">#자바</span></li>
+                        </ul>
+
+                      </li>
+                      <li><i class="bookmark icon yellow"></i><span class="item">#2학기</span></li>
+                    </ul>
+                  </li>
+                  <li><i class="bookmark icon yellow"></i><span class="item">#2019</span>
+                    <ul>
+                      <li><i class="bookmark icon yellow"></i><span class="item">#1학기</span></li>
+                      <li><i class="bookmark icon yellow"></i><span class="item">#2학기</span></li>
+                    </ul>
+                  </li>
+                  <li>
+                    <i class="bookmark icon yellow"></i><span class="item">#프로젝트</span>
+                    <ul>
+                      <li><i class="bookmark icon yellow"></i><span class="item">#데이터베이스</span></li>
+                      <li><i class="bookmark icon yellow"></i><span class="item">#자바프로젝트</span></li>
+                      <li><i class="bookmark icon yellow"></i><span class="item">#디비캡스톤디자인</span>
+                        <ul>  
+                          <li><i class="bookmark icon yellow"></i><span class="item">#TagNote</span></li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+
+          <div class="title" style="border: 1px solid lightgray;">
+            <i class="dropdown icon"></i>
+            태그별 메모
+          </div>
+          <div class="content">
+            <ul class="tree">
+              <li>
+                <span style="color: #00b5ad; font-weight: bold">태그목록</span>
+                <ul class="root list">
+                  <li>
+                    <span class="item">#2018</span>
+                  </li>
+                  <li>
+                    <span class="item">#2019</span>
+                  </li>
+                  <li>
+                    <span class="item">#2019</span>
+                  </li>
+                  <li>
+                    <span class="item">#2019</span>
+                  </li>
+                  <li>
+                    <span class="item">#프로젝트</span>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="navDiv4" style="padding-right: 15px;">
+
+        <a href="list.html?trash">
+          <i class="icon trash alternate" style="margin-right: 10px"></i><b>휴지통</b> 
+        </a>
+        <span class="test" style="float: right" onclick="confirm('휴지통을 비우시겠습니까?')">
+          <i class="icon trash alternate outline small"></i>
+        </span>
+      </div>
+    </nav>
+
+
+    <article id="mainArticle">
+
+      <div class="artDiv1" id="toTop">
+
+       <div class="ui internally grid center aligned">
+        <div class="row" style="padding-bottom: 0px;">
+          <div class="three wide column" style="margin-right: 0px;">
+            <button id="navColseBtn" class="close ui icon basic button" >
+              <i class="icon bars"></i>
+            </button>
+          </div>
+          <div class="ten wide column" style="padding-left: 0px;">
+            <div class="ui search">
+              <div class="ui icon input">
+                <input class="prompt" type="text" placeholder="검색">
+                <i class="search icon"></i>
+              </div>
+              <div class="results"></div>
+            </div>
+          </div>
+          <div class="three wide column">
+
+          </div>
+        </div>
+        <div class="row">
+          <div class="three wide column">
+            <div class="" style="border: 1px solid lightgray; padding: 10px; width: 40px; height: 40px;">
+              <div class="ui fitted checkbox" >
+                <input type="checkbox">
+                <label></label>
+              </div>
+            </div>
+          </div>
+          <div class="thirteen wide column left aligned" style="padding-left: 5px;">
+            <button class="ui button basic" >삭제</button>
+          </div>
+        </div>
+
+      </div>
+      <div class="artDiv2">
+        <table class="ui table selectable">
+          <thead class="full-width">
+            <tr>
+              <th class="one wide">
+                <div class="ui checkbox">
+                  <input type="checkbox" checked> <label></label>
+                </div>
+              </th>
+              <th class="one wide"><div class="fixed ui star rating " data-rating="1" data-max-rating="1"></div></th>
+              <th class="ten wide">Tags</th>
+              <th class="four wide">Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr onclick="location.href='memo.html?memoNum=1'">
+              <td class="collapsing">
+                <div class="ui checkbox">
+                  <input type="checkbox"> <label></label>
+                </div>
+              </td>
+              <td>
+                <div class="ui star rating" data-max-rating="1"></div>
+              </td>
+              <td>#2018 #데이터통신 #유상신</td>
+              <td>2019.09.17 08:59</td>
+
+            </tr>
+            <tr onclick="location.href='memo.html?memoNum=2'">
+              <td class="collapsing">
+                <div class="ui fitted checkbox">
+                  <input type="checkbox"> <label></label>
+                </div>
+              </td>
+              <td>
+                <div class="ui star rating" data-max-rating="1"></div>
+              </td>
+              <td>#2019 #자료구조 #자바 #노은하</td>
+              <td>2019.09.14 10:30</td>
+
+            </tr>
+            <tr onclick="location.href='memo.html?memoNum=3'">
+              <td class="collapsing">
+                <div class="ui fitted checkbox">
+                  <input type="checkbox"> <label></label>
+                </div>
+              </td>
+              <td>
+                <div class="ui star rating" data-max-rating="1"></div>
+              </td>
+              <td>#2019 #디비캡스톤디자인 #홍은지 #프로젝트</td>
+              <td>2019.09.14 10:30</td>
+
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+
+
+    </article>
+
+    <footer id="pageFooter">Footer</footer>
+  </div>
+
+  <div style="position: fixed; bottom: 50px; right: 30px; ">              
+    <button class="toTop ui icon button teal" onclick="location.href='#toTop'">
+      <i class="icon arrow up"></i>
+    </button>
+  </div>
+
+  <!-- modal -->
+  <div class="ui modal small">
+    <i class="close icon"></i>
+    <div class="header">
+      태그 조합 즐겨찾기 설정
+    </div>
+    <div class="scrolling content" >
+     <ul class="modalTree">
+      <li>
+        <span style="color: #00b5ad; font-weight: bold">태그조합</span>
+        <ul class="root list">
+          <li>
+            <i class="bookmark icon yellow"></i><span class="item">#2018</span>
+
+            <ul>
+              <li><i class="bookmark icon yellow"></i><span class="item">#1학기</span>
+                <ul>
+                  <li><i class="bookmark icon yellow"></i><span class="item">#데이터베이스</span></li>
+                  <li><i class="bookmark icon yellow"></i><span class="item">#자바</span></li>
+                </ul>
+
+              </li>
+              <li><i class="bookmark icon yellow"></i><span class="item">#2학기</span></li>
+            </ul>
+          </li>
+          <li><i class="bookmark icon yellow"></i><span class="item">#2019</span>
+            <ul>
+              <li><i class="bookmark icon yellow"></i><span class="item">#1학기</span></li>
+              <li><i class="bookmark icon yellow"></i><span class="item">#2학기</span></li>
+            </ul>
+          </li>
+          <li>
+            <i class="bookmark icon yellow"></i><span class="item">#프로젝트</span>
+            <ul>
+              <li><i class="bookmark icon yellow"></i><span class="item">#데이터베이스</span></li>
+              <li><i class="bookmark icon yellow"></i><span class="item">#자바프로젝트</span></li>
+              <li><i class="bookmark icon yellow"></i><span class="item">#디비캡스톤디자인</span>
+                <ul>  
+                  <li><i class="bookmark icon yellow"></i><span class="item">#TagNote</span></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="ui input fluid">
+    <input type="text" placeholder="Search...">
+  </div>
+
+
+
+  <div class="actions">
+    <div class="negative ui deny button">
+      삭제
+    </div>
+    <div class="ui button">
+      취소
+    </div>
+    <div class="ui positive right labeled icon button">
+      추가
+      <i class="checkmark icon"></i>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+ 
+</script>
+</body>
+</html>

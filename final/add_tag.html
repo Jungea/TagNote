@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.css"/>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.js"></script>
+	
+	<meta charset="utf-8">
+	<title>add tag</title>
+
+	<style type="text/css">
+
+		/*---------------------Grid Layout--------------------*/
+
+		body { 
+			margin: 0;
+		}
+
+		.frame {
+			display: grid;
+			grid-template-areas: 
+			"header header header"
+			"nav article aside"
+			"footer footer footer";
+			grid-template-rows: 50px 1fr 60px;
+			grid-template-columns: 1fr 1fr 1fr;
+			grid-gap: 0px;
+			height: 100vh;
+
+		}
+
+		#pageHeader {
+			grid-area: header;
+		}
+		#pageFooter {
+			grid-area: footer;
+		}
+		#mid1 { 
+			grid-area: nav; 
+			overflow: auto;
+		}
+		#mid2 { 
+			grid-area: article;    
+			overflow: auto;  
+		}
+		#mid3 { 
+			grid-area: aside; 
+			overflow: auto;
+		}
+
+		a {
+			color: black !important;
+		}
+
+		/*--------------------- header --------------------*/
+
+		header {
+			background-color: #00b5ad;
+			border-bottom: 1px solid lightgray;
+			font-weight: bold;
+			color: white;
+			font-size: 25px;
+			vertical-align: middle;
+			line-height: 50px;
+			padding-left: 25px;
+		}
+
+		/*--------------------- footer --------------------*/
+
+		footer {
+			border-top: 1px solid lightgray
+		}
+
+		/*--------------------- nav --------------------*/
+
+		nav {
+			border-right: 1px solid lightgray; 
+		}
+
+
+		/*--------------------- article --------------------*/
+
+		article {
+			display: grid;
+			grid-template-rows: 120px 1fr;
+			grid-gap: 0px;
+		}
+
+		article>.artDiv1 {
+			border-bottom: 1px solid lightgray;
+		}
+		.artDiv1>.grid {
+			max-width: 400px;
+			padding: 15px;
+		}
+
+	</style>
+
+	<script type="text/javascript">
+		$(function() {
+
+			//태그 검색 목록
+			var content = [
+			{ title: '#1학기' },
+			{ title: '#2018년' },
+			{ title: '#2019년' },
+			{ title: '#2학기' },
+			{ title: '#데이터베이스' },
+			{ title: '#프로젝트' },
+			{ title: '#안드로이드' },
+			{ title: '#Java' },
+			{ title: '#Angola' }
+			];
+			$('.ui.search').search({
+				source: content
+			});
+
+
+			//setting 버튼 버블링x
+			$(".test").on("click",function(event){
+				event.stopPropagation();
+			});
+
+
+			//
+			$('li').on("click",function(event){
+				event.stopPropagation();
+			});
+
+
+
+			$('.ui.checkbox').on("click",function(event){
+				event.stopPropagation();
+			});
+
+			$('.ui.rating').on("click",function(event){
+				event.stopPropagation();
+			});
+
+
+		})
+	</script>
+
+</head>
+<body>
+
+	<div class="frame">
+
+		<header id="pageHeader">
+			TAGNOTE
+		</header>
+
+		<nav id="mid1">
+			<div class="ui list" style="padding-top: 20px; padding-left: 30px;">
+
+				<div class="item">
+
+					<div class="content">
+						<div class="header">태그조합즐겨찾기</div>
+						<div class="description"></div>
+
+
+						<div class="list">
+							<div class="item">
+
+								<i class="bookmark yellow icon"></i>
+								<div class="content">
+									<div class="header">#2018년</div>
+									<div class="description"></div>
+
+
+									<div class="list">
+										<div class="item">
+
+											<i class="bookmark yellow icon"></i>
+											<div class="content">
+												<div class="header">#1학기</div>
+												<div class="description"></div>
+
+												<div class="list">
+													<div class="item">
+
+														<i class="bookmark yellow icon"></i>
+														<div class="content">
+															<div class="header">#데이터베이스</div>
+															<div class="description"></div>
+														</div>
+													</div>
+													<div class="item">
+														<i class="bookmark yellow icon"></i>
+														<div class="content">
+															<div class="header">#자바</div>
+															<div class="description"></div>
+														</div>
+													</div>
+												</div>
+
+											</div>
+
+										</div>
+										<div class="item">
+
+											<i class="bookmark yellow icon"></i>
+											<div class="content">
+												<div class="header">#2학기</div>
+												<div class="description"></div>
+											</div>
+
+										</div>
+
+									</div>
+								</div>
+							</div>
+							<div class="item">
+								<i class="bookmark yellow icon"></i>
+								<div class="content">
+									<div class="header">#2019년</div>
+									<div class="description"></div>
+									<div class="list">
+										<div class="item">
+
+											<i class="bookmark yellow icon"></i>
+											<div class="content">
+												<div class="header">#1학기</div>
+												<div class="description"></div>
+
+											</div>
+
+										</div>
+										<div class="item">
+
+											<i class="bookmark yellow icon"></i>
+											<div class="content">
+												<div class="header">#2학기</div>
+												<div class="description"></div>
+											</div>
+
+										</div>
+
+									</div>
+								</div>
+							</div>
+							<div class="item">
+								<i class="bookmark yellow icon"></i>
+								<div class="content">
+									<div class="header">#프로젝트</div>
+									<div class="description"></div>
+
+									<div class="list">
+										<div class="item">
+
+											<i class="bookmark yellow icon"></i>
+											<div class="content">
+												<div class="header">#HalliGalli</div>
+												<div class="description"></div>
+											</div>
+
+										</div>
+
+										<div class="item">
+
+											<i class="bookmark yellow icon"></i>
+											<div class="content">
+												<div class="header">#TagNote</div>
+												<div class="description"></div>
+											</div>
+
+										</div>
+
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</nav>
+
+		<!-- -------------------- article -------------------- -->
+
+		<article id="mid2">
+			<div style="padding-top: 20px; padding-left: 20px;">
+
+				<div class="ui search ">
+					<div class="ui icon input fluid">
+						<input class="prompt" type="text" placeholder="검색">
+						<i class="search icon"></i>
+					</div>
+				</div>
+
+				<div class="ui list" style="padding-top: 10px; padding-left: 10px;">
+
+					<div class="item">
+
+						<div class="header">태그목록</div>
+
+
+						<div class="list">
+							<div class="item">
+
+								<div class="header">#2018년</div>
+
+							</div>
+
+							<div class="item">
+								<div class="header">#2019년</div>
+
+							</div>
+
+							<div class="item">
+								<div class="header">#프로젝트</div>
+
+							</div>
+
+							<div class="item">
+								<div class="header">#1학기</div>
+
+							</div>
+
+							<div class="item">
+								<div class="header">#2학기</div>
+
+							</div>
+
+							<div class="item">
+								<div class="header">#TagNote</div>
+
+							</div>
+
+							<div class="item">
+								<div class="header">#알고리즘</div>
+
+							</div>
+							<div class="item">
+								<div class="header">#프로젝트</div>
+
+							</div>
+
+							<div class="item">
+								<div class="header">#1학기</div>
+
+							</div>
+
+							<div class="item">
+								<div class="header">#2학기</div>
+
+							</div>
+
+							<div class="item">
+								<div class="header">#TagNote</div>
+
+							</div>
+
+							<div class="item">
+								<div class="header">#알고리즘</div>
+
+							</div>
+
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+
+		</article>
+
+		<!-- -------------------- aside -------------------- -->
+
+		<aside id="mid3">
+			<form id="add_tag_form" action="memo.html" style="height: 100%; width: 100%; border: 1px solid lightgray; padding: 30px">
+				#2019<br>#2학기<br>#html<br>#spring<br>#mysql<br>#mybatis<br>#데이터베이스캡스톤
+			</form>
+
+
+		</aside>
+
+		<!-- -------------------- aside -------------------- -->
+
+		<footer id="pageFooter" >
+
+<!-- type="submit" form="add_tag_form" -->
+			<button class="ui button teal large" type="button" onclick="window.close()" style="float: right; margin: 10px 20px 10px 5px; ">추가</button>
+			<button class="ui button large" type="button" onclick="window.close()" style="float: right; margin: 10px 5px 10px 5px; ">취소</button>
+
+		</footer>
+
+
+		
+	</div>
+
+
+	<!-- semantic ui -->
+	<script type="text/javascript">
+
+		$('#target').accordion({
+			exclusive: false
+		});
+		$('.ui.rating').rating();
+
+		$(function() {
+			$('.icon.setting').click(function(event) {
+				$('.ui.modal').modal('show');
+			});
+		});
+
+	</script>
+
+</body>
+</html>

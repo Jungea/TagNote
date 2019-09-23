@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <link rel="stylesheet" href="../res/common.css">
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.css"/>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.js"></script>
+
+  <script src="res/common.js"></script>
+
+  <title></title>
+</head>
+<body>
+
+ <div class="frame">
+
+  <header id="pageHeader" style="background-color: red;">header</header>
+
+
+  <nav id="mainNav">
+    <div class="navDiv1">
+      <button class="ui teal button" onclick="location.href='memo.html'">새 메모 쓰기</button>
+    </div>
+
+    <div class="navDiv2">
+      <div class="ui list">
+        <a class="item" href="list.html?star">
+          <div class="fixed ui star rating" data-rating="1" data-max-rating="1" style="float: left; margin-right: 9px;"></div>
+          <div class="content">
+            <b>중요한 메모</b>
+          </div>
+        </a>
+        <a class="item" href="list.html?recent">
+          <i class="icon sticky note outline" style="padding-left: 3px;"></i>
+          <div class="content">
+            <b>최근본 메모</b>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="navDiv3">
+      <div id="target" class="ui styled accordion">
+        <div class="title" style="border: 1px solid lightgray;">
+          <i class="dropdown icon"></i>
+          태그 조합 즐겨찾기 
+          <span class="test" style="float: right">
+            <a>
+              <i class="icon setting"></i>
+            </a>
+          </span>
+        </div>
+        <div class="content" >
+          <ul class="tree">
+            <li>
+              <span style="color: #00b5ad; font-weight: bold">태그조합</span>
+              <ul class="root list">
+                <li>
+                  <i class="bookmark icon yellow"></i><span class="item">#2018</span>
+
+                  <ul>
+                    <li><i class="bookmark icon yellow"></i><span class="item">#1학기</span>
+                      <ul>
+                        <li><i class="bookmark icon yellow"></i><span class="item">#데이터베이스</span></li>
+                        <li><i class="bookmark icon yellow"></i><span class="item">#자바</span></li>
+                      </ul>
+
+                    </li>
+                    <li><i class="bookmark icon yellow"></i><span class="item">#2학기</span></li>
+                  </ul>
+                </li>
+                <li><i class="bookmark icon yellow"></i><span class="item">#2019</span>
+                  <ul>
+                    <li><i class="bookmark icon yellow"></i><span class="item">#1학기</span></li>
+                    <li><i class="bookmark icon yellow"></i><span class="item">#2학기</span></li>
+                  </ul>
+                </li>
+                <li>
+                  <i class="bookmark icon yellow"></i><span class="item">#프로젝트</span>
+                  <ul>
+                    <li><i class="bookmark icon yellow"></i><span class="item">#데이터베이스</span></li>
+                    <li><i class="bookmark icon yellow"></i><span class="item">#자바프로젝트</span></li>
+                    <li><i class="bookmark icon yellow"></i><span class="item">#디비캡스톤디자인</span>
+                      <ul>  
+                        <li><i class="bookmark icon yellow"></i><span class="item">#TagNote</span></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+        <div class="title" style="border: 1px solid lightgray;">
+          <i class="dropdown icon"></i>
+          태그별 메모
+        </div>
+        <div class="content">
+          <ul class="tree">
+            <li>
+              <span style="color: #00b5ad; font-weight: bold">태그목록</span>
+              <ul class="root list">
+                <li>
+                  <span class="item">#2018</span>
+                </li>
+                <li>
+                  <span class="item">#2019</span>
+                </li>
+                <li>
+                  <span class="item">#2019</span>
+                </li>
+                <li>
+                  <span class="item">#2019</span>
+                </li>
+                <li>
+                  <span class="item">#프로젝트</span>
+                </li>
+              </ul>
+            </li>
+          </ul>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="navDiv4" style="padding-right: 15px;">
+
+      <a href="list.html?trash">
+        <i class="icon trash alternate" style="margin-right: 10px"></i><b>휴지통</b> 
+      </a>
+      <span class="test" style="float: right" onclick="confirm('휴지통을 비우시겠습니까?')">
+        <i class="icon trash alternate outline small"></i>
+      </span>
+    </div>
+  </nav>
+
+
+  <article id="mainArticle">
+    <div class="artDiv1" style="background-color: green;">contents toolbar</div>
+
+    <div class="artDiv2" style="background-color: blue;"><div class="wrap">
+      <textarea>모든 국민은 법 앞에 평등하다. 누구든지 성별·종교 또는 사회적 신분에 의하여 정치적·경제적·사회적·문화적 생활의 모든 영역에 있어서 차별을 받지 아니한다. 국군은 국가의 안전보장과 국토방위의 신성한 의무를 수행함을 사명으로 하며, 그 정치적 중립성은 준수된다. 연소자의 근로는 특별한 보호를 받는다. 모든 국민은 신체의 자유를 가진다. 여자의 근로는 특별한 보호를 받으며, 고용·임금 및 근로조건에 있어서 부당한 차별을 받지 아니한다. 공무원의 신분과 정치적 중립성은 법률이 정하는 바에 의하여 보장된다. 정기회의 회기는 100일을, 임시회의 회기는 30일을 초과할 수 없다. 국회의원의 선거구와 비례대표제 기타 선거에 관한 사항은 법률로 정한다. 정기회의 회기는 100일을, 임시회의 회기는 30일을 초과할 수 없다. 주거에 대한 압수나 수색을 할 때에는 검사의 신청에 의하여 법관이 발부한 영장을 제시하여야 한다.
+
+      사는곳 안드로메다. 직업 개념수집. 게시글 지구인들이어 개념 항상 감사합니다. 입법권은 국회에 속한다. 국가는 청원에 대하여 심사할 의무를 진다. 주거에 대한 압수나 수색을 할 때에는 검사의 신청에 의하여 법관이 발부한 영장을 제시하여야 한다. 공공필요에 의한 재산권의 수용, 사용 또는 제한 및 그에 대한 보상은 법률로써 하되, 정당한 보상을 지급하여야 한다. 입법권은 국회에 속한다. 모든 국민은 행위시의 법률에 의하여 범죄를 구성하지 아니하는 행위로 소추되지 아니하며, 동일한 범죄에 대하여 거듭 처벌받지 아니한다. 사는곳 안드로메다. 직업 개념수집. 게시글 지구인들이어 개념 항상 감사합니다.</textarea>
+    </div></div>
+  </article>
+
+  <footer id="pageFooter" style="background-color: purple;">Footer</footer>
+</div>
+
+</body>
+</html>

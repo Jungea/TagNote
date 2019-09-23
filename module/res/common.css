@@ -1,0 +1,119 @@
+ body { 
+     margin: 0;
+}
+
+.frame {
+     display: grid;
+     grid-template-areas: 
+     "header header header"
+     "nav article article"
+     "footer footer footer";
+     grid-template-rows: 50px 1fr 30px;
+     grid-template-columns: 250px 1fr;
+     grid-gap: 0px;
+     height: 100vh;
+
+}
+
+/*nav close button click*/
+.frame.closeNav {  
+     grid-template-areas: 
+     "header"
+     "article"
+     "footer";
+     grid-template-columns: 1fr;
+}
+
+header {
+    background-color: #00b5ad;
+    border-bottom: 1px solid lightgray;
+    color: white;
+    font-weight: bold;
+    font-size: 25px;
+    vertical-align: middle;
+    line-height: 50px;
+    padding-left: 25px;
+}
+
+nav {
+     border-right: 1px solid lightgray; 
+}
+
+nav>.navDiv1 {
+ border-bottom: 1px solid lightgray;
+ text-align: center;
+ padding: 10px 0 10px 0;
+}
+
+nav>.navDiv1>button {
+ width: 200px;
+}
+
+nav>.navDiv2 {
+ padding: 10px 20px 10px 20px;
+}
+nav>.navDiv2>.ui {
+}
+nav>.navDiv2>.ui>.item {
+ margin: 5px;
+}
+
+nav>.navDiv4 {
+ padding: 10px 25px 10px 25px;
+}
+
+article {
+  display: grid;
+  grid-template-rows: 120px 1fr;
+  grid-gap: 0px;
+}
+
+article>.artDiv1 {
+  border-bottom: 1px solid lightgray;
+}
+
+
+footer {
+   background-color: lightgray;
+}
+
+#pageHeader {
+   grid-area: header;
+}
+#pageFooter {
+   grid-area: footer;
+}
+#mainArticle { 
+   grid-area: article;    
+   overflow: auto;  
+}
+#mainNav { 
+   grid-area: nav; 
+   overflow: auto;
+
+}
+a {
+   color: black !important;
+}
+
+/*태그 조합 즐겨찾기*/
+   .tree {
+    /*border:1px solid black;*/
+    margin-top: 0px;
+  }
+
+  .tree, .tree ul, .modalTree, .modalTree ul  {
+    list-style: none;
+    padding-left: 5px;
+  }
+
+
+  .tree a{
+    text-decoration: none;
+    color:#393939;
+  }
+
+  li {
+    margin: 8px 5px;
+  }
+
